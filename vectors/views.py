@@ -29,6 +29,17 @@ def ex1(request):
                                         'y_p': y_p, 'sum': sum})
 
 
+def ex2(request):
+    vet = []
+    if request.method == "POST":
+        start_vector = int(request.POST.get('value_x'))
+        ending_vector = int(request.POST.get('value_y'))
+        for i in range(start_vector, ending_vector):
+            if i % 2 == 1:
+                vet.append(i)
+    return render(request, 'ex2.html', {'vet': vet})
+
+
 def ex3(request):
     vet = []
     a = None
@@ -41,3 +52,6 @@ def ex3(request):
             erro = 'Plase write exactly 4 values separated by comma.'
             return render(request, 'ex3.html', {'erro': erro})
     return render(request, 'ex3.html', {'vet': vet, 'a': a})
+    
+    
+
