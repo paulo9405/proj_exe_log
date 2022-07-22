@@ -1,6 +1,10 @@
 from django.urls import path
 
-from .views import home, ex1, ex2, ex3, ex4, ex5, ex6, ex7
+from .views import (
+    home, ex1, ex2,
+    ex3, ex4, ex5,
+    ex6, ex7, ex9
+)
 
 urlpatterns = [
     path('', home, name='home'),
@@ -11,5 +15,6 @@ urlpatterns = [
     path('ex5', ex5, name='ex5_x'),
     path('ex6', ex6, name='ex6_x'),
     path('ex7', ex7, name='ex7_x'),
+    path('ex9', ex9, name='ex9_x'),
 
 ]
