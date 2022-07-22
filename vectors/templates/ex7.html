@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>
+    Leia dois vetores de 20 posições e calcule um terceiro vetor contendo,
+    nas posições pares os valores do primeiro e nas posições impares os
+    valores do segundo.
+</p>
+
+<h1> Ex 7</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="v1">vector 1</label>
+        <input type="text" name="value_1" id="v1">
+
+        <br><br>
+
+        <label for="v2">vector 2</label>
+        <input type="text" name="value_2" id="v2">
+
+        <br><br>
+
+        <input type="submit">
+
+    </form>
+<br>
+
+<h4>List 1: {{vet_list_1}}</h4>
+<h4>List 2: {{vet_list_2}}</h4>
+
+<h4>List final: {{vet_list_3}}</h4>
+
+<br><br>
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>
