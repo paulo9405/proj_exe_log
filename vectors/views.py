@@ -234,3 +234,20 @@ def ex12(request):
     return render(request, 'ex12.html', {'vet_list': vet_list, 'value1': value1,
                                          'value2': value2, 'value3': value3})
                                          
+
+
+def ex13(request):
+    vet_list = []
+    vet = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            vet_list.append(int(i))
+
+        for i in vet_list:
+            if vet_list.count(i) > 1:
+                vet.append(i)
+
+
+    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        

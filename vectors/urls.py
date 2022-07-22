@@ -4,8 +4,8 @@ from .views import (
     home, ex1, ex2,
     ex3, ex4, ex5,
     ex6, ex7, ex9,
-    ex10, ex11
-    ex12
+    ex10, ex11, exe12,
+    ex13
 )
 
 urlpatterns = [
@@ -21,6 +21,6 @@ urlpatterns = [
     path('ex10', ex10, name='ex10_x'),
     path('ex11', ex11, name='ex11_x'),
     path('ex12', ex12, name='ex12_x'),
-
+    path('ex13', ex13, name='ex13_x'),
 
 ]
