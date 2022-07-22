@@ -27,3 +27,17 @@ def ex1(request):
     return render(request, 'ex1.html', {'list_value': list_value,
                                         'x': x, 'y': y, 'x_p': x_p,
                                         'y_p': y_p, 'sum': sum})
+
+
+def ex3(request):
+    vet = []
+    a = None
+    if request.method == 'POST':
+        value_1 = request.POST.get('value_x')
+        vet = value_1.split(",")
+        div = int(len(vet) / 2)
+        a = [vet[div:], vet[:div]]
+        if len(vet) > 4 or len(vet) < 4:
+            erro = 'Plase write exactly 4 values separated by comma.'
+            return render(request, 'ex3.html', {'erro': erro})
+    return render(request, 'ex3.html', {'vet': vet, 'a': a})
