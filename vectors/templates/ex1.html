@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Exercicio 1</h1>
+
+<p>
+    Leia um vetor de 12 posições e em seguida ler também dois valores X e Y <br>
+    quaisquer correspondentes a duas posições no vetor. Ao final seu programa deverá<br>
+    escrever a soma dos valores encontrados nas respectivas posições X e Y.
+</p>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="value_1">Value 1:</label>
+        <input type="text" name="value_1" required> <br><br>
+
+        <label for="x">Value position to X:</label>
+        <input type="text" name="value_x" id="x" required> <br><br>
+
+        <label for="y">Value position to Y:</label>
+        <input type="number" name="value_y" id="y" required> <br><br>
+
+        <input type="submit">
+    </form>
+
+<h4>
+List: {{list_value}} <br>
+
+Position x {{x}}: {{x_p}} <br>
+Position y {{y}}: {{y_p}} <br>
+
+Sum position x + position y = {{sum}}
+</h4>
+
+<br>
+
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+
+
+</body>
+</html>
