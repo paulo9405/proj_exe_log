@@ -27,3 +27,14 @@ def ex1(request):
     return render(request, 'ex1.html', {'list_value': list_value,
                                         'x': x, 'y': y, 'x_p': x_p,
                                         'y_p': y_p, 'sum': sum})
+
+
+def ex2(request):
+    vet = []
+    if request.method == "POST":
+        start_vector = int(request.POST.get('value_x'))
+        ending_vector = int(request.POST.get('value_y'))
+        for i in range(start_vector, ending_vector):
+            if i % 2 == 1:
+                vet.append(i)
+    return render(request, 'ex2.html', {'vet': vet})
