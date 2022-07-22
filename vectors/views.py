@@ -235,7 +235,6 @@ def ex12(request):
                                          'value2': value2, 'value3': value3})
                                          
 
-
 def ex13(request):
     vet_list = []
     vet = []
@@ -248,6 +247,5 @@ def ex13(request):
         for i in vet_list:
             if vet_list.count(i) > 1:
                 vet.append(i)
-
 
     return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
