@@ -177,6 +177,25 @@ def ex10(request):
     return render(request, 'ex10.html', {'vet_list': vet_list, 'value': value})
 
 
+def reversed_string(a_string):
+    return a_string[::-1]
+
+
+def ex11(request):
+    value = list
+    rever = None
+    rev = None
+    if request.method == "POST":
+        value = request.POST.get('value')
+
+        if reversed_string(value) == value:
+            rever = 'É um Anagrama'
+
+        else:
+            rev = 'Nao é um Anagrama'
+    return render(request, 'ex11.html', {'rever': rever, 'rev': rev, 'value': value})
+
+
 def ex12(request):
     value1 = []
     value2 = []
@@ -214,3 +233,4 @@ def ex12(request):
             return render(request, 'ex12.html', {'erro': erro})
     return render(request, 'ex12.html', {'vet_list': vet_list, 'value1': value1,
                                          'value2': value2, 'value3': value3})
+                                         
