@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 12</h1>
+
+<p>
+    Leia 3 vetores de 9 posições e crie outro com o 1º terço do primeiro, <br>
+    o segundo 3º. do segundo e o ultimo terço do 3º. <br>
+    Escrever o vetor resultante ao final. <br>
+</p>
+
+{% if erro %}
+    <h3>{{erro}}</h3>
+{% endif %}
+
+
+<form action="" method="POST">
+    {%csrf_token%}
+
+    <label for="1">Vector 1</label>
+    <input type="text" name="value1" id="v1">
+    <p>Copy and past: 1, 2, 3, 4, 5, 6, 7, 8, 9</p>
+    <br><br>
+
+    <label for="2">Vector 2</label>
+    <input type="text" name="value2" id="v2">
+    <p>Copy and past: 11, 12, 13, 14, 15, 16, 17, 18, 19</p>
+    <br><br>
+
+    <label for="3">Vector 3</label>
+    <input type="text" name="value3" id="v3">
+    <p>Copy and past: 21, 22, 23, 24, 25, 26, 27, 28, 29</p>
+    <br><br>
+    <input type="submit">
+</form>
+
+<h4>
+Vector 1: {{value1}} <br><br>
+Vector 2: {{value2}} <br><br>
+Vector 3: {{value3}} <br><br>
+</h4>
+
+<h2>Vector list: {{vet_list}}</h2>
+
+
+<br>
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>

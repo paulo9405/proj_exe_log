@@ -175,3 +175,42 @@ def ex10(request):
             vet_list.append(num2words(value[i], lang='en'))
 
     return render(request, 'ex10.html', {'vet_list': vet_list, 'value': value})
+
+
+def ex12(request):
+    value1 = []
+    value2 = []
+    value3 = []
+    vet_list1 = []
+    vet_list2 = []
+    vet_list3 = []
+    vet_list = []
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(",")
+        value2 = request.POST.get('value2').split(",")
+        value3 = request.POST.get('value3').split(",")
+
+    for i in value1:
+        vet_list1.append(int(i))
+
+    for i in value2:
+        vet_list2.append(int(i))
+
+    for i in value3:
+        vet_list3.append(int(i))
+
+    for i in value1:
+        vet_list[:3] = value1[:3]
+
+    for i in value2:
+        vet_list[3:6] = value2[3:6]
+
+    for i in value3:
+        vet_list[6:] = value3[6:]
+
+        if len(vet_list1) + len(vet_list2) + len(vet_list3) != 27:
+            erro = 'Plase put just 9 values in each field.'
+            return render(request, 'ex12.html', {'erro': erro})
+    return render(request, 'ex12.html', {'vet_list': vet_list, 'value1': value1,
+                                         'value2': value2, 'value3': value3})
