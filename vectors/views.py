@@ -175,3 +175,22 @@ def ex10(request):
             vet_list.append(num2words(value[i], lang='en'))
 
     return render(request, 'ex10.html', {'vet_list': vet_list, 'value': value})
+
+
+def reversed_string(a_string):
+    return a_string[::-1]
+
+
+def ex11(request):
+    value = list
+    rever = None
+    rev = None
+    if request.method == "POST":
+        value = request.POST.get('value')
+
+        if reversed_string(value) == value:
+            rever = 'É um Anagrama'
+
+        else:
+            rev = 'Nao é um Anagrama'
+    return render(request, 'ex11.html', {'rever': rever, 'rev': rev, 'value': value})
