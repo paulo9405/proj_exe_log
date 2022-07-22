@@ -52,6 +52,25 @@ def ex3(request):
             erro = 'Plase write exactly 4 values separated by comma.'
             return render(request, 'ex3.html', {'erro': erro})
     return render(request, 'ex3.html', {'vet': vet, 'a': a})
-    
-    
 
+
+def ex4(request):
+    vet = []
+    vet_list = []
+    in_vet = None
+    value_x = None
+    if request.method == 'POST':
+        value = request.POST.get('vector_1')
+        vet = value.split(",")
+        value_x = request.POST.get('value_x')
+
+        for i in vet:
+            c = i.replace(' ', '')
+            vet_list.append(c)
+
+    if value_x not in vet_list:
+        not_in = 'Value not in vector.'
+        return render(request, 'ex4.html', {'not_in': not_in})
+
+    in_vet = vet_list.index(value_x)
+    return render(request, 'ex4.html', {'in_vet': in_vet, 'vet_list': vet_list, 'value_x': value_x})

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Execicise 4</h1>
+
+<p>
+    Leia um vetor de 20 posições e em seguida um valor X qualquer.<br>
+    Seu programa devera fazer uma busca do valor de X no vetor lido<br>
+    e informar a posição em que foi encontrado ou se não foi encontrado.<br>
+
+</p>
+
+<br>
+
+<form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="vector">Vectors:</label>
+        <input type="text" name="vector_1" id="vector" required> <br><br>
+
+        <label for="x">Value X:</label>
+        <input type="text" name="value_x" id="x" required> <br><br>
+
+        <input type="submit">
+    </form>
+
+<br><br>
+
+{{vet_list}}
+
+{% if not_in %}
+    <h4>{{not_in}}</h4>
+{%endif%}
+
+{% if in_vet%}
+    <h4>Value ({{value_x}}) Found on position: {{in_vet}}</h4>
+{% endif %}
+
+<br><br>
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+
+
+</body>
+</html>
