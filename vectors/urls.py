@@ -5,6 +5,7 @@ from .views import (
     ex3, ex4, ex5,
     ex6, ex7, ex9,
     ex10, ex11
+    ex12
 )
 
 urlpatterns = [
@@ -19,5 +20,7 @@ urlpatterns = [
     path('ex9', ex9, name='ex9_x'),
     path('ex10', ex10, name='ex10_x'),
     path('ex11', ex11, name='ex11_x'),
+    path('ex12', ex12, name='ex12_x'),
+
 
 ]
