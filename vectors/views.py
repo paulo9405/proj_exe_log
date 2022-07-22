@@ -74,3 +74,26 @@ def ex4(request):
 
     in_vet = vet_list.index(value_x)
     return render(request, 'ex4.html', {'in_vet': in_vet, 'vet_list': vet_list, 'value_x': value_x})
+
+
+def ex5(request):
+    vet = []
+    vet_list = []
+    tot_par = 0
+    par = []
+    value = None
+
+    if request.method == 'POST':
+        value = request.POST.get('vector_x')
+        vet = value.split(",")
+
+    for i in vet:
+        vet_list.append(int(i))
+
+    for i in vet_list:
+        if i % 2 == 0:
+            tot_par += 1
+            par.append(i)
+
+    tot_par = tot_par
+    return render(request, 'ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
