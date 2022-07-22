@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 13</h1>
+
+<p>
+    Leia um vetor de 10 posições e verifique se <br>
+    existem valores iguais e os escreva.
+</p>
+
+<form action="" method="POSt">
+    {% csrf_token %}
+    <label for="v">Vectors</label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<h4>List: {{vet_list}}</h4>
+
+<h4>Repeat list: {{vet}}</h4>
+
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>

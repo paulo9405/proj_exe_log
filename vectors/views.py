@@ -175,3 +175,20 @@ def ex10(request):
             vet_list.append(num2words(value[i], lang='en'))
 
     return render(request, 'ex10.html', {'vet_list': vet_list, 'value': value})
+
+
+def ex13(request):
+    vet_list = []
+    vet = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            vet_list.append(int(i))
+
+        for i in vet_list:
+            if vet_list.count(i) > 1:
+                vet.append(i)
+
+
+    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})
