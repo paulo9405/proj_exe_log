@@ -114,3 +114,38 @@ def ex6(request):
             vet_list[index] = 0
 
     return render(request, 'ex6.html', {'vet_list': vet_list, 'vet': vet})
+
+
+def ex7(request):
+    vet_list_1 = []
+    vet_list_2 = []
+    vet_list_3 = []
+    value_1 = []
+    value_2 = []
+
+    point_vet1 = 0
+    point_vet2 = 0
+
+    if request.method == 'POST':
+        value_1 = request.POST.get('value_1').split(",")
+        value_2 = request.POST.get('value_2').split(",")
+
+    for i in value_1:
+        vet_list_1.append(int(i))
+
+    for i in value_2:
+        vet_list_2.append(int(i))
+
+    for i in range(0, len(vet_list_1) + len(vet_list_2)):
+        if i % 2 == 0:
+            vet_list_3.append(vet_list_1[point_vet1])
+            point_vet1 += 1
+
+        else:
+            vet_list_3.append(vet_list_2[point_vet2])
+            point_vet2 += 1
+        # vet_list_3.append(vet_list_1[i])
+        # vet_list_3.append(vet_list_2[i])
+    return render(request, 'ex7.html', {'vet_list_3': vet_list_3,
+                                        'vet_list_1': vet_list_1,
+                                        'vet_list_2': vet_list_2})
