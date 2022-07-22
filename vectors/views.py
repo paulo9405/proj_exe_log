@@ -29,24 +29,12 @@ def ex1(request):
                                         'y_p': y_p, 'sum': sum})
 
 
-def ex5(request):
+def ex2(request):
     vet = []
-    vet_list = []
-    tot_par = 0
-    par = []
-    value = None
-
-    if request.method == 'POST':
-        value = request.POST.get('vector_x')
-        vet = value.split(",")
-
-    for i in vet:
-        vet_list.append(int(i))
-
-    for i in vet_list:
-        if i % 2 == 0:
-            tot_par += 1
-            par.append(i)
-
-    tot_par = tot_par
-    return render(request, 'ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
+    if request.method == "POST":
+        start_vector = int(request.POST.get('value_x'))
+        ending_vector = int(request.POST.get('value_y'))
+        for i in range(start_vector, ending_vector):
+            if i % 2 == 1:
+                vet.append(i)
+    return render(request, 'ex2.html', {'vet': vet})
