@@ -248,4 +248,25 @@ def ex13(request):
             if vet_list.count(i) > 1:
                 vet.append(i)
 
-    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
+    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})
+
+
+def ex14(request):
+    value = []
+    value_list = []
+    vet_list = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+    for i in value:
+        value_list.append(int(i))
+
+    for i in value_list:
+        if i != 0:
+            vet_list.append(i)
+
+    for i in value_list:
+        if i == 0:
+            vet_list.insert(len(vet_list), i)
+
+    return render(request, 'ex14.html', {'value_list': value_list, 'vet_list': vet_list})
