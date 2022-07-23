@@ -4,7 +4,7 @@ from .views import (
     home, ex1, ex2,
     ex3, ex4, ex5,
     ex6, ex7, ex9,
-    ex10, ex11, exe12,
+    ex10, ex11, ex12,
     ex13
 )
 
