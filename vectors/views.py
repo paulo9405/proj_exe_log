@@ -249,3 +249,19 @@ def ex13(request):
                 vet.append(i)
 
     return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
+
+
+def ex17(request):
+    value = []
+    vet_list = []
+    sum = 0
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            vet_list.append(int(i))
+
+        for i in vet_list:
+            sum += i
+
+    return render(request, 'ex17.html', {'vet_list': vet_list, 'sum': sum})

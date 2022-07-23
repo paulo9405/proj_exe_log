@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 17</h1>
+
+<p>
+    Escreva um algoritmo que solicite ao usuário a entrada de 5 números, <br>
+    e que exiba o somatório desses números na tela. Após exibir a soma, <br>
+    o programa deve mostrar também os números que o usuário digitou, um por linha.
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">Vectors</label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+
+<h4>
+{% for i in vet_list %}
+    {{i}}<br>
+{% endfor %}
+</h4>
+
+<h4>Sum of the values: {{sum}}</h4>
+
+<br>
+
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>
