@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 19</h1>
+
+<p>
+    Crie um programa que solicite a entrada de 10 números pelo usuário, <br>
+    armazenando-os em um vetor, e então monte outro vetor com os valores do <br>
+    primeiro multiplicados por 5. Exiba os valores dos dois vetores na tela, <br>
+    simultaneamente, em duas colunas (um em cada coluna), uma posição por linha.
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v"></label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+<p>Copy and past: 1,2,3,4,5,6,7,8,9,10 </p>
+
+<br> <br>
+<style>
+div {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+}
+</style>
+
+    <div id="div1">Values <br><br>
+        {% for y in  vet_list%}
+            {{y}} <br>
+        {% endfor %}
+    </div>
+
+    <div id="div2">mult by 5 <br><br>
+        {% for x in  mult_list%}
+            {{x}} <br>
+        {% endfor %}
+    </div>
+<br>
+
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>
