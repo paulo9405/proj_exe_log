@@ -249,3 +249,22 @@ def ex13(request):
                 vet.append(i)
 
     return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
+
+
+def ex20(request):
+    imp = []
+    par = []
+    vet_list = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            vet_list.append(int(i))
+
+        for i in vet_list:
+            if i % 2 == 0:
+                par.append(i)
+            else:
+                imp.append(i)
+
+    return render(request, 'ex20.html', {'vet_list': vet_list, 'par': par, 'imp': imp})

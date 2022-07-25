@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 13</h1>
+
+<p>
+    Crie um programa que armazene 10 números digitados pelo usuário em dois vetores: <br>
+    um somente para números pares, e outro somente para números ímpares. <br>
+    Após, exiba os valores dos dois vetores na tela, em sequência.
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v"></label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+
+</form>
+<br>
+
+<h4>List: {{vet_list}}</h4>
+<h4>Pair: {{par}}</h4>
+<h4>Impar: {{imp}}</h4>
+
+</body>
+</html>
