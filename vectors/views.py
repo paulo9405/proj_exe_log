@@ -252,21 +252,19 @@ def ex13(request):
 
 
 def ex14(request):
-    value = []
     value_list = []
     vet_list = []
     if request.method == 'POST':
         value = request.POST.get('value').split(",")
 
-    for i in value:
-        value_list.append(int(i))
+        value_list = [int(x) for x in value]
 
-    for i in value_list:
-        if i != 0:
-            vet_list.append(i)
+        for i in value_list:
+            if i != 0:
+                vet_list.append(i)
 
-    for i in value_list:
-        if i == 0:
-            vet_list.insert(len(vet_list), i)
+        for i in value_list:
+            if i == 0:
+                vet_list.insert(len(vet_list), i)
 
     return render(request, 'ex14.html', {'value_list': value_list, 'vet_list': vet_list})
