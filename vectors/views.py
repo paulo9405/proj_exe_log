@@ -30,23 +30,19 @@ def ex1(request):
 
 
 def ex5(request):
-    vet = []
-    vet_list = []
     tot_par = 0
     par = []
-    value = None
+    value = []
 
     if request.method == 'POST':
-        value = request.POST.get('vector_x')
-        vet = value.split(",")
+        value = request.POST.get('vector_x').split(",")
 
-    for i in vet:
-        vet_list.append(int(i))
+        for i in value:
+            i_int = int(i)
 
-    for i in vet_list:
-        if i % 2 == 0:
-            tot_par += 1
-            par.append(i)
+            if i_int % 2 == 0:
+                tot_par += 1
+                par.append(i_int)
 
     tot_par = tot_par
     return render(request, 'ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
