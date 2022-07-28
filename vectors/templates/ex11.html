@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 11</h1>
+
+<p>
+     Leia dois vetores de 4 posições. Verifique e escreva se <br>
+    um é anagrama de outro. Ex: ARARA, ARARA – são anagramas
+</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="v"></label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+
+</form>
+
+<h4>Value: {{value}}
+<br>
+{% if rever %}
+    {{rever}}
+{% endif %}
+<br>
+{% if rev %}
+    {{rev}}
+{% endif %}
+<br>
+</h4>
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+</body>
+</html>
