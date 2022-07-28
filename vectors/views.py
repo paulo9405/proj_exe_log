@@ -252,19 +252,18 @@ def ex13(request):
 
 
 def ex14(request):
-    value_list = []
-    vet_list = []
+    numeros = []
+    zeros = []
+    value = []
     if request.method == 'POST':
         value = request.POST.get('value').split(",")
 
-        value_list = [int(x) for x in value]
+        for i in value:
+            i_int = int(i)
+            if i_int != 0:
+                numeros.append(i_int)
+            else:
 
-        for i in value_list:
-            if i != 0:
-                vet_list.append(i)
+                zeros.append(i_int)
 
-        for i in value_list:
-            if i == 0:
-                vet_list.insert(len(vet_list), i)
-
-    return render(request, 'ex14.html', {'value_list': value_list, 'vet_list': vet_list})
+    return render(request, 'ex14.html', {'vet_list': numeros+zeros, 'value':value})
