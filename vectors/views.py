@@ -263,3 +263,15 @@ def ex17(request):
             sum += i_int
 
     return render(request, 'ex17.html', {'value': value, 'sum': sum})
+def ex18(request):
+    value = []
+    list = []
+    list_names = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+        list_names = reversed_string(value)
+
+        if len(value) != 5:
+            erro = 'Plase write exacly 5 names saparete by comam.'
+            return render(request, 'ex18.html', {'erro': erro})
+    return render(request, 'ex18.html', {'value': value, 'list_names': list_names})
