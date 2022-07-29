@@ -253,16 +253,15 @@ def ex13(request):
 
 def ex19(request):
     value = []
-    vet_list = []
     mult_list = []
     if request.method == 'POST':
         value = request.POST.get('value').split(",")
 
+
+
         for i in value:
-            vet_list.append(int(i))
+            i_int = int(i)
+            i_int *= 5
+            mult_list.append(i_int)
 
-        for i in vet_list:
-            i *= 5
-            mult_list.append(i)
-
-    return render(request, 'ex19.html', {'vet_list': vet_list, 'mult_list': mult_list})
+    return render(request, 'ex19.html', {'value': value, 'mult_list': mult_list})
