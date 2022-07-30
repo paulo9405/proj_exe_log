@@ -268,17 +268,15 @@ def ex18(request):
 def ex20(request):
     imp = []
     par = []
-    vet_list = []
+    value = []
     if request.method == 'POST':
         value = request.POST.get('value').split(",")
 
         for i in value:
-            vet_list.append(int(i))
-
-        for i in vet_list:
-            if i % 2 == 0:
-                par.append(i)
+            int_i = int(i)
+            if int_i % 2 == 0:
+                par.append(int_i)
             else:
-                imp.append(i)
+                imp.append(int_i)
 
-    return render(request, 'ex20.html', {'vet_list': vet_list, 'par': par, 'imp': imp})
+    return render(request, 'ex20.html', {'value': value, 'par': par, 'imp': imp})
