@@ -297,8 +297,6 @@ def ex19(request):
     if request.method == 'POST':
         value = request.POST.get('value').split(",")
 
-
-
         for i in value:
             i_int = int(i)
             i_int *= 5

@@ -5,15 +5,11 @@ from .views import (
     ex3, ex4, ex5,
     ex6, ex7, ex9,
     ex10, ex11, ex12,
-    ex13, ex21
+    ex13, ex14, ex17,
+    ex18, ex19, ex20,
+    ex21
+)
 
-    ex13, ex18, ex20
-    ex13, ex18, ex19
-    ex13, ex14,
-    ex17, ex18
-    ex13, ex14
-    ex13, ex18
-    )
 
 urlpatterns = [
     path('', home, name='home'),
