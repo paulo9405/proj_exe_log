@@ -77,43 +77,37 @@ def ex4(request):
 
 
 def ex5(request):
-    vet = []
-    vet_list = []
     tot_par = 0
     par = []
-    value = None
+    value = []
 
     if request.method == 'POST':
-        value = request.POST.get('vector_x')
-        vet = value.split(",")
+        value = request.POST.get('vector_x').split(",")
 
-    for i in vet:
-        vet_list.append(int(i))
+        for i in value:
+            i_int = int(i)
 
-    for i in vet_list:
-        if i % 2 == 0:
-            tot_par += 1
-            par.append(i)
+            if i_int % 2 == 0:
+                tot_par += 1
+                par.append(i_int)
 
     tot_par = tot_par
     return render(request, 'ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
 
 
 def ex6(request):
-    vet = []
+    values = []
     vet_list = []
     if request.method == 'POST':
-        values = request.POST.get('value')
-        vet = values.split(",")
+        values = request.POST.get('value').split(",")
 
-    for i in vet:
-        vet_list.append(int(i))
+    for index, v in enumerate(values):
+        v_int = int(v)
+        vet_list.append(int(v))
+        if v_int < 0:
+            values[index] = '0'
 
-    for index, v in enumerate(vet_list):
-        if v < 0:
-            vet_list[index] = 0
-
-    return render(request, 'ex6.html', {'vet_list': vet_list, 'vet': vet})
+    return render(request, 'ex6.html', {'values': values, 'vet_list': vet_list})
 
 
 def ex7(request):
@@ -267,3 +261,17 @@ def ex14(request):
                 zeros.append(i_int)
 
     return render(request, 'ex14.html', {'vet_list': numeros+zeros, 'value':value})
+
+
+def ex18(request):
+    value = []
+    list = []
+    list_names = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+        list_names = reversed_string(value)
+
+        if len(value) != 5:
+            erro = 'Plase write exacly 5 names saparete by comam.'
+            return render(request, 'ex18.html', {'erro': erro})
+    return render(request, 'ex18.html', {'value': value, 'list_names': list_names})

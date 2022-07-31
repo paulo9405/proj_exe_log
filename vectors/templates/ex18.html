@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>Ex 18</h1>
+
+    <p>
+        Escreva um algoritmo que solicite ao usuário a entrada de 5 nomes, <br>
+        e que exiba a lista desses nomes na tela. Após exibir essa lista, o programa <br>
+        deve mostrar também os nomes na ordem inversa em que o usuário os digitou, um por linha.
+    </p>
+
+    <br>
+
+    <h4>{{erro}}</h4>
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <label for="v">Names</label>
+        <input type="text" name="value" id="v">
+        <input type="submit">
+
+    </form>
+    <p id="c">ex: Neymar, Messi, CR7, Ronaldo Fenomeno, Paulo</p>
+
+    <br>
+    <h4>{{value}}</h4>
+    <br>
+    <h3>Names reverse:</h3>
+    <ul>
+        {% for name in list_names %}
+            <li>{{name}}</li> <br>
+        {% endfor %}
+    </ul>
+
+
+    <br>
+
+    <a href="{% url 'home' %}">Back to list</a> <br>
+
+
+</body>
+</html>
