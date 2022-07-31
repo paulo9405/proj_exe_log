@@ -100,20 +100,18 @@ def ex5(request):
 
 
 def ex6(request):
-    vet = []
+    values = []
     vet_list = []
     if request.method == 'POST':
-        values = request.POST.get('value')
-        vet = values.split(",")
+        values = request.POST.get('value').split(",")
 
-    for i in vet:
-        vet_list.append(int(i))
+    for index, v in enumerate(values):
+        v_int = int(v)
+        vet_list.append(int(v))
+        if v_int < 0:
+            values[index] = '0'
 
-    for index, v in enumerate(vet_list):
-        if v < 0:
-            vet_list[index] = 0
-
-    return render(request, 'ex6.html', {'vet_list': vet_list, 'vet': vet})
+    return render(request, 'ex6.html', {'values': values, 'vet_list': vet_list})
 
 
 def ex7(request):
