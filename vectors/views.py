@@ -287,3 +287,19 @@ def ex18(request):
             erro = 'Plase write exacly 5 names saparete by comam.'
             return render(request, 'ex18.html', {'erro': erro})
     return render(request, 'ex18.html', {'value': value, 'list_names': list_names})
+
+
+def ex19(request):
+    value = []
+    mult_list = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+
+
+        for i in value:
+            i_int = int(i)
+            i_int *= 5
+            mult_list.append(i_int)
+
+    return render(request, 'ex19.html', {'value': value, 'mult_list': mult_list})
