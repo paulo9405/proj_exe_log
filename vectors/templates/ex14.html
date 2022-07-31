@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 14</h1>
+
+<p>
+    Leia um vetor de 50 posições e o compacte, ou seja, <br>
+    elimine as posições com valor zero avançando uma posição, <br>
+    com os com os valores subseqüentes do vetor. Dessa forma todos “zeros” <br>
+    devem ficar para as posições finais do vetor.
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">Vectors</label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<h4>List: {{value}}</h4>
+<h4>List with zero in the end: {{vet_list}}</h4>
+
+<br>
+<a href="{% url 'home' %}">Back to list</a> <br>
+
+
+</body>
+</html>
