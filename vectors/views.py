@@ -263,6 +263,18 @@ def ex14(request):
     return render(request, 'ex14.html', {'vet_list': numeros+zeros, 'value':value})
 
 
+def ex17(request):
+    value = []
+    sum = 0
+
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            i_int = int(i)
+            sum += i_int
+
+    return render(request, 'ex17.html', {'value': value, 'sum': sum})
 def ex18(request):
     value = []
     list = []
