@@ -242,8 +242,8 @@ def ex13(request):
             if vet_list.count(i) > 1:
                 vet.append(i)
 
-    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})
-
+    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
+    
 
 def ex14(request):
     numeros = []
@@ -275,6 +275,8 @@ def ex17(request):
             sum += i_int
 
     return render(request, 'ex17.html', {'value': value, 'sum': sum})
+    
+    
 def ex18(request):
     value = []
     list = []
@@ -303,3 +305,20 @@ def ex19(request):
             mult_list.append(i_int)
 
     return render(request, 'ex19.html', {'value': value, 'mult_list': mult_list})
+
+
+def ex20(request):
+    imp = []
+    par = []
+    value = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(",")
+
+        for i in value:
+            int_i = int(i)
+            if int_i % 2 == 0:
+                par.append(int_i)
+            else:
+                imp.append(int_i)
+
+    return render(request, 'ex20.html', {'value': value, 'par': par, 'imp': imp})
