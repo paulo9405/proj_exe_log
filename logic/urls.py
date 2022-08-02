@@ -16,5 +16,8 @@ Including another URLconf
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('vectors.urls')),
+    path('', include('home.urls')),
+    path('matrices/', include('matrices.urls')),
+    path('vectors/', include('vectors.urls')),
+
 ]

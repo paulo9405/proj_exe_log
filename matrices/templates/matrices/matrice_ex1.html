@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Matrice Ex 1</h1>
+
+<p>Leia uma matriz 10 x 10 e escreva a localização (linha e a coluna) do maior valor.</p>
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v1">Values</label>
+    <input type="text" name="value1" id="v1">
+    <br><br>
+
+    <input type="submit">
+</form>
+
+<p>Copy: 100, 150, 200, 400, 800, 50, 99, 50, 81, 11</p>
+
+    <br><br>
+
+    {%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+
+    <br>
+    Maior: {{maior}} <br>
+    Position: {{position}}
+    <br>
+
+<br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+</body>
+</html>

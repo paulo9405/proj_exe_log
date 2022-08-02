@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'vectors/home.html')
 
 
 def ex1(request):
@@ -24,7 +24,7 @@ def ex1(request):
         y_p = list_value[y]
         sum = int(list_value[x]) + int(list_value[y])
 
-    return render(request, 'ex1.html', {'list_value': list_value,
+    return render(request, 'vectors/ex1.html', {'list_value': list_value,
                                         'x': x, 'y': y, 'x_p': x_p,
                                         'y_p': y_p, 'sum': sum})
 
@@ -37,7 +37,7 @@ def ex2(request):
         for i in range(start_vector, ending_vector):
             if i % 2 == 1:
                 vet.append(i)
-    return render(request, 'ex2.html', {'vet': vet})
+    return render(request, 'vectors/ex2.html', {'vet': vet})
 
 
 def ex3(request):
@@ -51,7 +51,7 @@ def ex3(request):
         if len(vet) > 4 or len(vet) < 4:
             erro = 'Plase write exactly 4 values separated by comma.'
             return render(request, 'ex3.html', {'erro': erro})
-    return render(request, 'ex3.html', {'vet': vet, 'a': a})
+    return render(request, 'vectors/ex3.html', {'vet': vet, 'a': a})
 
 
 def ex4(request):
@@ -70,10 +70,10 @@ def ex4(request):
 
     if value_x not in vet_list:
         not_in = 'Value not in vector.'
-        return render(request, 'ex4.html', {'not_in': not_in})
+        return render(request, 'vectors/ex4.html', {'not_in': not_in})
 
     in_vet = vet_list.index(value_x)
-    return render(request, 'ex4.html', {'in_vet': in_vet, 'vet_list': vet_list, 'value_x': value_x})
+    return render(request, 'vectors/ex4.html', {'in_vet': in_vet, 'vet_list': vet_list, 'value_x': value_x})
 
 
 def ex5(request):
@@ -92,7 +92,7 @@ def ex5(request):
                 par.append(i_int)
 
     tot_par = tot_par
-    return render(request, 'ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
+    return render(request, 'vectors/ex5.html', {'tot_par': tot_par, 'value': value, 'par': par})
 
 
 def ex6(request):
@@ -107,7 +107,7 @@ def ex6(request):
         if v_int < 0:
             values[index] = '0'
 
-    return render(request, 'ex6.html', {'values': values, 'vet_list': vet_list})
+    return render(request, 'vectors/ex6.html', {'values': values, 'vet_list': vet_list})
 
 
 def ex7(request):
@@ -140,7 +140,7 @@ def ex7(request):
             point_vet2 += 1
         # vet_list_3.append(vet_list_1[i])
         # vet_list_3.append(vet_list_2[i])
-    return render(request, 'ex7.html', {'vet_list_3': vet_list_3,
+    return render(request, 'vectors/ex7.html', {'vet_list_3': vet_list_3,
                                         'vet_list_1': vet_list_1,
                                         'vet_list_2': vet_list_2})
 
@@ -151,7 +151,7 @@ def ex9(request):
     if request.method == "POST":
         value = request.POST.get('value')
         value_without_space = value.replace(" ", "")
-    return render(request, 'ex9.html', {'value_without_space': value_without_space,
+    return render(request, 'vectors/ex9.html', {'value_without_space': value_without_space,
                                         'value': value})
 
 
@@ -168,7 +168,7 @@ def ex10(request):
         for i in range(0, len(value)):
             vet_list.append(num2words(value[i], lang='en'))
 
-    return render(request, 'ex10.html', {'vet_list': vet_list, 'value': value})
+    return render(request, 'vectors/ex10.html', {'vet_list': vet_list, 'value': value})
 
 
 def reversed_string(a_string):
@@ -187,7 +187,7 @@ def ex11(request):
 
         else:
             rev = 'Nao é um Anagrama'
-    return render(request, 'ex11.html', {'rever': rever, 'rev': rev, 'value': value})
+    return render(request, 'vectors/ex11.html', {'rever': rever, 'rev': rev, 'value': value})
 
 
 def ex12(request):
@@ -225,7 +225,7 @@ def ex12(request):
         if len(vet_list1) + len(vet_list2) + len(vet_list3) != 27:
             erro = 'Plase put just 9 values in each field.'
             return render(request, 'ex12.html', {'erro': erro})
-    return render(request, 'ex12.html', {'vet_list': vet_list, 'value1': value1,
+    return render(request, 'vectors/ex12.html', {'vet_list': vet_list, 'value1': value1,
                                          'value2': value2, 'value3': value3})
                                          
 
@@ -242,7 +242,7 @@ def ex13(request):
             if vet_list.count(i) > 1:
                 vet.append(i)
 
-    return render(request, 'ex13.html', {'vet_list': vet_list, 'vet': vet})                                        
+    return render(request, 'vectors/ex13.html', {'vet_list': vet_list, 'vet': vet})
     
 
 def ex14(request):
@@ -260,7 +260,7 @@ def ex14(request):
 
                 zeros.append(i_int)
 
-    return render(request, 'ex14.html', {'vet_list': numeros+zeros, 'value':value})
+    return render(request, 'vectors/ex14.html', {'vet_list': numeros+zeros, 'value':value})
 
 
 def ex17(request):
@@ -274,7 +274,7 @@ def ex17(request):
             i_int = int(i)
             sum += i_int
 
-    return render(request, 'ex17.html', {'value': value, 'sum': sum})
+    return render(request, 'vectors/ex17.html', {'value': value, 'sum': sum})
     
     
 def ex18(request):
@@ -288,7 +288,7 @@ def ex18(request):
         if len(value) != 5:
             erro = 'Plase write exacly 5 names saparete by comam.'
             return render(request, 'ex18.html', {'erro': erro})
-    return render(request, 'ex18.html', {'value': value, 'list_names': list_names})
+    return render(request, 'vectors/ex18.html', {'value': value, 'list_names': list_names})
 
 
 def ex19(request):
@@ -302,7 +302,7 @@ def ex19(request):
             i_int *= 5
             mult_list.append(i_int)
 
-    return render(request, 'ex19.html', {'value': value, 'mult_list': mult_list})
+    return render(request, 'vectors/ex19.html', {'value': value, 'mult_list': mult_list})
 
 
 def ex20(request):
@@ -319,7 +319,7 @@ def ex20(request):
             else:
                 imp.append(int_i)
 
-    return render(request, 'ex20.html', {'value': value, 'par': par, 'imp': imp})
+    return render(request, 'vectors/ex20.html', {'value': value, 'par': par, 'imp': imp})
 
 
 def ex21(request):
@@ -342,5 +342,5 @@ def ex21(request):
         if i == 0:
             error = 'Number zero dont acept.'
             return render(request, 'ex21.html', {'error': error})
-    return render(request, 'ex21.html', {'vet_list': vet_list, 'par': par, 'imp': imp})
+    return render(request, 'vectors/ex21.html', {'vet_list': vet_list, 'par': par, 'imp': imp})
 
