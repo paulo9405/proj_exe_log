@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Matrices Ex2</h1>
+
+<p>
+    Declare uma matriz 5 x 5. Preencha com 1 a diagonal principal e com 0 <br>
+    os demais elementos. Escreva ao final a matriz obtida.
+</p>
+
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v0">Value 0</label>
+    <input type="text" name="value0" id="v0" placeholder="Write just 0.">
+    <br><br>
+
+    <label for="v1">Value 1</label>
+    <input type="text" name="value1" id="v1" placeholder="Write just 1.">
+    <br><br>
+
+    <input type="submit">
+</form>
+
+<p>Copy: 700, 750, 500, 400, 800</p>
+<p>Copy: 9, 9, 9, 9, 9</p>
+
+<br><br>
+
+    {%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+
+<br><br>
+
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+</body>
+</html>

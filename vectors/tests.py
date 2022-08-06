@@ -1,9 +1,4 @@
-
-# for i in a:
-#     b.append(random.sample(range(0, int(i)), 5))
-#
-# print(b)
-
+'''
 a = '10, 4, 70, 80, 50, 100, 150, 20, 45, 88'
 
 
@@ -21,8 +16,9 @@ def test1(value):
     if (not all(valid)): # oposto
         print('Not all values are valid!')
 
-# test(a)
-
+v = test1(a)
+#
+print(v, 'v')
 
 
 def test(value):
@@ -35,3 +31,15 @@ def test(value):
     if (not all(valid)):
         return False
     return True
+
+a = '10, 4, 70, 80, 50, 100, 150, 20, 45, 88'
+
+def test3(value):
+    valid = [int(x)for x in value.split(',') ]
+    return
+
+
+c = test3(a)
+
+print(c, 'c')
+'''
