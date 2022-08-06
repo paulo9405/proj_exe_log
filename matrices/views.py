@@ -44,33 +44,30 @@ def matrice_ex2(request):
     if request.method != 'POST':
         return render(request, 'matrices/matrice_ex2.html')
 
-    value0 = request.POST.get('value0').split(',')
     value1 = request.POST.get('value1').split(',')
 
-    integer0 = [int(x) for x in value0]
     integer1 = [int(x) for x in value1]
 
-    valid_0 = [x == 0 for x in integer0]
     valid_1 = [x == 1 for x in integer1]
 
-    if (not all(valid_0)) or (not all(valid_1)):
-        error = 'Plaese write just 0 or 1 in each field.'
+    if (not all(valid_1)):
+        error = 'Plaese write just 1.'
         return render(request, 'matrices/matrice_ex2.html', {'error': error})
 
-    matrices = [[], [], [], [], []]
-    for _ in itertools.repeat(integer0, 5):
-        matrices[0].append(integer0)
-        matrices[1].append(integer0)
-        matrices[2].append(integer0)
-        matrices[3].append(integer0)
-        matrices[4].append(integer0)
+    matrices = [
+        [0, 0, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, ],
+        [0, 0, 0, 0, 0, ],
+    ]
 
-    for l in range(0, len(matrices)):
-        for c in range(0, len(matrices)):
-            matrices[0][0] = integer1
-            matrices[1][1] = integer1
-            matrices[2][2] = integer1
-            matrices[3][3] = integer1
-            matrices[4][4] = integer1
+    linha = coluna = 0
+
+    for _ in range(0, len(matrices)):
+        matrices[linha][coluna] = integer1
+        linha += 1
+        coluna += 1
+
 
     return render(request, 'matrices/matrice_ex2.html',   {'matrices': matrices})
