@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 5 Matrices</h1>
+
+<p>
+    Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer <br>
+    uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) <br>
+    ou uma mensagem de “não encontrado”.
+</p>
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v1">Values</label>
+    <input type="text" name="value1" id="v1">
+
+    <br> <br>
+
+    <label for="v2">Value 2</label>
+    <input type="text" name="value2" id="v2">
+    
+    <br> <br>
+
+    <input type="submit">
+
+</form>
+
+<br><br>
+
+    {%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+
+<br> <br>
+Value: {{value2_int}}
+<br>
+
+Positions: {{positions}}
+
+{%if error2 %}
+   {{ error2 }}
+{%endif%}
+
+
+<br> <br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+
+</body>
+</html>
