@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 4 matrices</h1>
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">values</label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+<br>
+
+<br>
+    {%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+<br>
+<h4>Values larger than 10</h4>
+{{larger_than_ten}}
+
+<h4>Qunatity: {{count}}</h4>
+
+<br><br>
+
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+
+</body>
+</html>
