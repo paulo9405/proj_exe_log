@@ -35,3 +35,55 @@ def matrice_ex1(request):
                 position = i, j
 
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
+
+
+def matrice_ex3(request):
+    if request.method != 'POST':
+        return render(request, 'matrices/matrice_ex3.html')
+
+    value1 = request.POST.get('value1').split(',')
+    value2 = request.POST.get('value2').split(',')
+
+    integers_1 = [int(x) for x in value1]
+    valid_1 = [x >= 4 for x in integers_1]
+
+    integers_2 = [int(x) for x in value2]
+    valid_2 = [x >= 4 for x in integers_2]
+
+    if len(value1) != 4:
+        error = 'Plaese write just 4 values.'
+        return render(request, 'matrices/matrice_ex3.html', {'error': error})
+
+    if (not all(valid_1)) or (not all(valid_2)):
+        error = 'Plaese write values grater than 4.'
+        return render(request, 'matrices/matrice_ex3.html', {'error': error})
+
+    matrices_1 = []
+    for x in integers_1:
+        matrices_1.append([random.randint(1, x) for _ in range(4)])
+
+    matrices_2 = []
+    for x in integers_2:
+        matrices_2.append([random.randint(1, x) for _ in range(4)])
+
+    largest_a = []
+    for linha in matrices_1:
+        largest_a.append(max(linha))
+
+    list_sorted_a = sorted(largest_a)
+    largest_first_a = list_sorted_a[-1]
+    largest_second_a = list_sorted_a[-2]
+
+    largest_b = []
+    for linha in matrices_2:
+        largest_b.append(max(linha))
+
+    list_sorted_b = sorted(largest_b)
+    largest_first_b = list_sorted_b[-1]
+    largest_second_b = list_sorted_b[-2]
+
+    matrice_third = [[largest_first_a, largest_second_a], [largest_first_b, largest_second_b]]
+
+    return render(request, 'matrices/matrice_ex3.html', {'matrices_1': matrices_1,
+                                                         'matrices_2': matrices_2,
+                                                         'matrice_third': matrice_third})
