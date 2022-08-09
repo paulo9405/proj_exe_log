@@ -38,33 +38,32 @@ def matrice_ex1(request):
 
 
 def matrice_ex4(request):
-    if request.method != 'POST':
-        return render(request, 'matrices/matrice_ex4.html')
+    int_i_list = []
+    if request.method == 'POST':
+        values = request.POST.get('value').split(',')
 
-    values = request.POST.get('value').split(',')
+        if len(values) != 6:
+            error = 'Plaese write just 6 values.'
+            return render(request, 'matrices/matrice_ex4.html', {'error': error})
 
-    if len(values) != 6:
-        error = 'Plaese write just 6 values.'
-        return render(request, 'matrices/matrice_ex4.html', {'error': error})
+        for i in values:
+            int_i = int(i)
+            int_i_list.append(int_i)
+            if int_i < 6:
+                error = 'Plaese write values grater than 6.'
+                return render(request, 'matrices/matrice_ex4.html', {'error': error})
 
-    integers = [int(x) for x in values]
-    valid = [x >= 6 for x in integers]
+        matrices = []
+        larger_than_ten = []
+        count = 0
+        for x in int_i_list:
+            matrices.append([random.randint(1, x) for _ in range(6)])
 
-    if (not all(valid)):
-        error = 'Plaese write values grater than 6.'
-        return render(request, 'matrices/matrice_ex4.html', {'error': error})
-
-    matrices = []
-    larger_than_ten = []
-    count = 0
-    for x in integers:
-        matrices.append([random.randint(1, x) for _ in range(6)])
-
-    for l in matrices:
-        for c in l:
-            if c > 10:
-                larger_than_ten.append(c) # or i can use the len of this will return the quantity.
-                count += 1
+        for l in matrices:
+            for c in l:
+                if c > 10:
+                    larger_than_ten.append(c) # or i can use the len of this will return the quantity.
+                    count += 1
 
     return render(request, 'matrices/matrice_ex4.html', {'matrices': matrices,
                                                          'larger_than_ten': larger_than_ten,

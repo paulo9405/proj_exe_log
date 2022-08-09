@@ -8,6 +8,10 @@
 
 <h1>Ex 4 matrices</h1>
 
+<p>
+    Leia uma matriz 6 x 6, conte e escreva quantos valores maiores que 10 ela possui.
+</p>
+
 {%if error %}
     {{ error }}
 {%endif%}
@@ -25,8 +29,7 @@
         {{i}}<br>
     {%endfor%}
 <br>
-<h4>Values larger than 10</h4>
-{{larger_than_ten}}
+<h4>Values larger than 10: {{larger_than_ten}}</h4>
 
 <h4>Qunatity: {{count}}</h4>
 
