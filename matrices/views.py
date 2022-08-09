@@ -37,37 +37,30 @@ def matrice_ex1(request):
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
 
 
-import itertools
-
-
 def matrice_ex2(request):
-    if request.method != 'POST':
-        return render(request, 'matrices/matrice_ex2.html')
+    matrices = []
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
 
-    value1 = request.POST.get('value1').split(',')
+        for i in value1:
+            int_i = int(i)
+            if int_i != 1:
+                error = 'Plaese write just number 1.'
+                return render(request, 'matrices/matrice_ex2.html', {'error': error})
 
-    integer1 = [int(x) for x in value1]
+        matrices = [
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            ]
 
-    valid_1 = [x == 1 for x in integer1]
+        linha = coluna = 0
 
-    if (not all(valid_1)):
-        error = 'Plaese write just 1.'
-        return render(request, 'matrices/matrice_ex2.html', {'error': error})
-
-    matrices = [
-        [0, 0, 0, 0, 0, ],
-        [0, 0, 0, 0, 0, ],
-        [0, 0, 0, 0, 0, ],
-        [0, 0, 0, 0, 0, ],
-        [0, 0, 0, 0, 0, ],
-    ]
-
-    linha = coluna = 0
-
-    for _ in range(0, len(matrices)):
-        matrices[linha][coluna] = integer1
-        linha += 1
-        coluna += 1
-
+        for _ in range(0, len(matrices)):
+            matrices[linha][coluna] = int_i
+            linha += 1
+            coluna += 1
 
     return render(request, 'matrices/matrice_ex2.html',   {'matrices': matrices})
