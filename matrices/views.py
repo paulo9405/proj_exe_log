@@ -34,4 +34,35 @@ def matrice_ex1(request):
                 maior = matrices[i][j]
                 position = i, j
 
-    return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
+    return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices,
+                                                         'maior': maior,
+                                                         'position': position})
+
+
+def matrice_ex6(request):
+    if request.method == 'POST':
+        value = request.POST.get('value').split(',')
+
+    if len(value) != 4:
+        error = 'Plaese write just 4 values.'
+        return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+    matrices = []
+    for i in value:
+        int_i = int(i)
+
+        if int_i < 4:
+            error = 'Plaese write value grater than 4.'
+            return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+        matrices.append([random.randint(1, int_i) for _ in range(4)])
+
+    for i in range(4):
+        m = matrices[0][i]
+        matrices[0][i] = matrices[3][i]
+        matrices[3][i] = m
+
+
+
+
+    return render(request, 'matrices/matrice_ex6.html', {'matrices': matrices})

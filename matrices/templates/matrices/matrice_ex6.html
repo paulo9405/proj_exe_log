@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Matrice ex6</h1>
+<br>
+{% if error %}
+    {{error}}
+{% endif %}
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v"></label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br>
+{%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+<br>
+
+<br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+
+</body>
+</html>
