@@ -38,7 +38,6 @@ def matrice_ex1(request):
 
 
 def matrice_ex5(request):
-    value2 = []
     matrices = []
     error2 = None
     value2_int = None
@@ -61,18 +60,16 @@ def matrice_ex5(request):
         value2 = request.POST.get('value2').split(',')
 
         value2_int = int(value2[0])
-        positions = []
+
         for i in range(0, len(matrices)):
             for j in range(0, len(matrices)):
                 if matrices[i][j] == value2_int:
                     position = i, j
                     positions.append(position)
-        for l in matrices:
-            for c in l:
-                if value2_int == c:
-                    return render(request, 'matrices/matrice_ex5.html', {
-                        'matrices': matrices, 'positions': positions, 'value2_int': value2_int})
 
-                error2 = 'not in matrice.'
+                    return render(request, 'matrices/matrice_ex5.html', {
+                        'matrices': matrices, 'position': position, 'value2_int': value2_int})
+
+            error2 = 'not in matrice.'
     return render(request, 'matrices/matrice_ex5.html', {'matrices': matrices, 'error2': error2, 'value2_int': value2_int})
 
