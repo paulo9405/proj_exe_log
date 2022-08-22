@@ -65,7 +65,6 @@ def matrice_ex5(request):
             for j in range(0, len(matrices)):
                 if matrices[i][j] == value2_int:
                     position = i, j
-                    positions.append(position)
 
                     return render(request, 'matrices/matrice_ex5.html', {
                         'matrices': matrices, 'position': position, 'value2_int': value2_int})
