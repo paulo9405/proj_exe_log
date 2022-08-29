@@ -35,3 +35,29 @@ def matrice_ex1(request):
                 position = i, j
 
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
+
+def matrice_ex8(request):
+    matrix = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+    ]
+
+    matriz = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+    ]
+
+    for l in range(len(matriz)):
+        for c in range(len(matriz)):
+            if c > l:
+                cy = matriz[l][c]
+                matriz[l][c] = matriz[c][l]
+                matriz[c][l] = cy
+
+    return render(request, 'matrices/matrice_ex8.html', {'matriz': matriz, 'matrix': matrix})
