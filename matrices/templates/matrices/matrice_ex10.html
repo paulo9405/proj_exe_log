@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Matrice ex10</h1>
+
+<br><br>
+
+    {%for i in mat%}
+        {{i}}<br>
+    {%endfor%}
+
+<br>
+<h4>Highest main diagonal value: {{highest}}</h4>
+<h4>Sum of the secondary diagonal: {{summ_sec}}</h4>
+
+<br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+</body>
+</html>
