@@ -17,3 +17,19 @@ for i, produto in enumerate(produtos):
     produtos[i] = trattar_texto(produto)
 
 print(produtos)
+
+
+a = 11
+
+def primo(x):
+    mult = 0
+    for count in range(2, x):
+        if (x % count == 0):
+            mult += 1
+
+        if (mult == 0):
+            return True
+        return False
+
+a = primo(a)
+print(a)
