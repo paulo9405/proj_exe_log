@@ -41,6 +41,7 @@ def matrice_ex3(request):
     matrices_1 = []
     matrices_2 = []
     matrice_third = []
+    lem = None
 
     if request.method == 'POST':
         value1 = request.POST.get('value1').split(',')
@@ -52,6 +53,13 @@ def matrice_ex3(request):
         value6 = request.POST.get('value6').split(',')
         value7 = request.POST.get('value7').split(',')
         value8 = request.POST.get('value8').split(',')
+
+        lem = len(value1+value2+value3+value4+value5+value6+value7+value8)
+
+        if lem != 32:
+            error = 'Please write just 4 values in each field.'
+            return render(request, 'matrices/matrice_ex3.html', {'error': error})
+
 
         matrices_1 = [value1, value2, value3, value4]
         matrices_2 = [value5, value6, value7, value8]
@@ -76,4 +84,4 @@ def matrice_ex3(request):
 
     return render(request, 'matrices/matrice_ex3.html', {'matrices_1': matrices_1,
                                                          'matrices_2': matrices_2,
-                                                         'matrice_third': matrice_third})
+                                                         'matrice_third': matrice_third, 'lem':lem})
