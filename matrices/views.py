@@ -43,23 +43,22 @@ def matrice_ex5(request):
     value2_int = None
 
     if request.method == 'POST':
-        value = request.POST.get('value1').split(',')
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+        value5 = request.POST.get('value5').split(',')
 
-        if len(value) != 5:
-            error = 'Plaese write just 10 values.'
+        lem = len(value1 + value2 + value3 + value4 + value5)
+        if lem != 25:
+            error = 'Plaese write just 5 values.'
             return render(request, 'matrices/matrice_ex5.html', {'error': error})
 
-        for i in value:
-            int_i = int(i)
-            if int_i < 10:
-                error = 'Plaese write values grater than 9.'
-                return render(request, 'matrices/matrice_ex5.html', {'error': error})
+        matrices = [value1, value2, value3, value4, value5]
 
-            matrices.append([random.randint(1, int_i) for _ in range(5)])
+        valueX = request.POST.get('valueX').split(',')
 
-        value2 = request.POST.get('value2').split(',')
-
-        value2_int = int(value2[0])
+        value2_int = int(valueX[0])
 
         for i in range(0, len(matrices)):
             for j in range(0, len(matrices)):
