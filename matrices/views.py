@@ -36,7 +36,7 @@ def matrice_ex1(request):
 
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
 
-def matrice_ex6(request):
+def matrice_ex7(request):
     matriz = []
     if request.method == 'POST':
         value = request.POST.get('value').split(',')
@@ -45,7 +45,7 @@ def matrice_ex6(request):
             int_i = int(i)
             if int_i != 0:
                 error = 'Plaese write just number 0.'
-                return render(request, 'matrices/matrice_ex6.html', {'error': error})
+                return render(request, 'matrices/matrice_ex7.html', {'error': error})
 
         matriz = [
             [1, 1, 1, 1, 1, 1, 1, 1],
@@ -63,5 +63,5 @@ def matrice_ex6(request):
                 if c < l:
                     matriz[c][l] = 0
 
-    return render(request, 'matrices/matrice_ex6.html', {'matriz': matriz})
+    return render(request, 'matrices/matrice_ex7.html', {'matriz': matriz})
 
