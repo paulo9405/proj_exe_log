@@ -40,6 +40,7 @@ def matrice_ex1(request):
 
 
 def matrice_ex6(request):
+    value = []
     if request.method == 'POST':
         value = request.POST.get('value').split(',')
 
@@ -61,8 +62,5 @@ def matrice_ex6(request):
         m = matrices[0][i]
         matrices[0][i] = matrices[3][i]
         matrices[3][i] = m
-
-
-
 
     return render(request, 'matrices/matrice_ex6.html', {'matrices': matrices})
