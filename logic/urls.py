@@ -19,5 +19,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('matrices/', include('matrices.urls')),
     path('vectors/', include('vectors.urls')),
+    path('functions/', include('functions.urls')),
 
 ]
