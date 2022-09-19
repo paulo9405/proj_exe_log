@@ -37,6 +37,35 @@ def matrice_ex1(request):
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
 
 
+def matrice_ex2(request):
+    matrices = []
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+
+        for i in value1:
+            int_i = int(i)
+            if int_i != 1:
+                error = 'Plaese write just number 1.'
+                return render(request, 'matrices/matrice_ex2.html', {'error': error})
+
+        matrices = [
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            ]
+
+        linha = coluna = 0
+
+        for _ in range(0, len(matrices)):
+            matrices[linha][coluna] = int_i
+            linha += 1
+            coluna += 1
+
+    return render(request, 'matrices/matrice_ex2.html',   {'matrices': matrices})
+    
+    
 def matrice_ex3(request):
     matrices_1 = []
     matrices_2 = []
