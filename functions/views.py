@@ -23,3 +23,22 @@ def functions_ex6(request):
         tot_day = calc(int(age))
 
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
+
+def functions_ex7(request):
+    error = None
+    true_false = None
+    value = None
+    if request.method == 'POST':
+        value = request.POST.get('value')
+
+        list_numbers = []
+        list_div = []
+        for i in range(1, int(value)):
+            list_numbers.append(i)
+            if int(value) % i == 0:
+                list_div.append(i)
+            if sum(list_div) == int(value):
+                true_false = True
+            else:
+                true_false = False
+    return render(request, 'functions/functions_ex7.html', {'true_false': true_false, 'value': value})
