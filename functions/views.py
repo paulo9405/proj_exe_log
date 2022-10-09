@@ -23,3 +23,24 @@ def functions_ex6(request):
         tot_day = calc(int(age))
 
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
+
+def functions_ex9_ex10(request):
+    r1 = None
+    r2 = None
+    if request.method == 'POST':
+        value = request.POST.get('value')
+
+        def neg_pos(a):
+            if a >= 0:
+                return True
+            return False
+
+        def inp_par(a):
+            if a % 2 == 0:
+                return True
+            return False
+
+        r1 = neg_pos(int(value))
+        r2 = inp_par(int(value))
+
+    return render(request, 'functions/functions_ex9_ex10.html', {'r1': r1, 'r2': r2})
