@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'vectors',
-    'matrices'
+    'matrices',
+    'functions',
 ]
 
 MIDDLEWARE = [
