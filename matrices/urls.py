@@ -6,9 +6,8 @@ from .views import(
     matrice_ex3,
     matrice_ex4,
     matrice_ex5,
+    matrice_ex6,
 )
-
-
 
 
 urlpatterns = [
@@ -18,5 +17,5 @@ urlpatterns = [
     path('matrice_ex3', matrice_ex3, name='matrice_ex3_x'),
     path('matrice_ex4', matrice_ex4, name='matrice_ex4_x'),
     path('matrice_ex5', matrice_ex5, name='matrice_ex5_x'),
-
+    path('matrice_ex6', matrice_ex6, name='matrice_ex6_x'),
 ]

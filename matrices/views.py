@@ -186,3 +186,30 @@ def matrice_ex5(request):
             error2 = 'not in matrice.'
     return render(request, 'matrices/matrice_ex5.html', {'matrices': matrices, 'error2': error2, 'value2_int': value2_int})
 
+
+def matrice_ex6(request):
+    value = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(',')
+
+    if len(value) != 4:
+        error = 'Plaese write just 4 values.'
+        return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+    matrices = []
+    for i in value:
+        int_i = int(i)
+
+        if int_i < 4:
+            error = 'Plaese write value grater than 4.'
+            return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+        matrices.append([random.randint(1, int_i) for _ in range(4)])
+
+    for i in range(4):
+        m = matrices[0][i]
+        matrices[0][i] = matrices[3][i]
+        matrices[3][i] = m
+
+    return render(request, 'matrices/matrice_ex6.html', {'matrices': matrices})
+
