@@ -37,6 +37,121 @@ def matrice_ex1(request):
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
 
 
+def matrice_ex2(request):
+    matrices = []
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+
+        for i in value1:
+            int_i = int(i)
+            if int_i != 1:
+                error = 'Plaese write just number 1.'
+                return render(request, 'matrices/matrice_ex2.html', {'error': error})
+
+        matrices = [
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            [0, 0, 0, 0, 0, ],
+            ]
+
+        linha = coluna = 0
+
+        for _ in range(0, len(matrices)):
+            matrices[linha][coluna] = int_i
+            linha += 1
+            coluna += 1
+
+    return render(request, 'matrices/matrice_ex2.html',   {'matrices': matrices})
+    
+    
+def matrice_ex3(request):
+    matrices_1 = []
+    matrices_2 = []
+    matrice_third = []
+    lem = None
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+
+        value5 = request.POST.get('value5').split(',')
+        value6 = request.POST.get('value6').split(',')
+        value7 = request.POST.get('value7').split(',')
+        value8 = request.POST.get('value8').split(',')
+
+        lem = len(value1+value2+value3+value4+value5+value6+value7+value8)
+
+        if lem != 32:
+            error = 'Please write just 4 values in each field.'
+            return render(request, 'matrices/matrice_ex3.html', {'error': error})
+
+        matrices_1 = [value1, value2, value3, value4]
+        matrices_2 = [value5, value6, value7, value8]
+
+        largest_a = []
+        for linha in matrices_1:
+            largest_a.append(max(linha))
+
+        list_sorted_a = sorted(largest_a)
+        largest_first_a = list_sorted_a[-1]
+        largest_second_a = list_sorted_a[-2]
+
+        largest_b = []
+        for linha in matrices_2:
+            largest_b.append(max(linha))
+
+        list_sorted_b = sorted(largest_b)
+        largest_first_b = list_sorted_b[-1]
+        largest_second_b = list_sorted_b[-2]
+
+        matrice_third = [[largest_first_a, largest_second_a], [largest_first_b, largest_second_b]]
+
+    return render(request, 'matrices/matrice_ex3.html', {'matrices_1': matrices_1,
+                                                         'matrices_2': matrices_2,
+                                                         'matrice_third': matrice_third, 'lem':lem})
+
+
+def matrice_ex4(request):
+    matrices = []
+    larger_than_ten = []
+    count = None
+
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+        value5 = request.POST.get('value5').split(',')
+        value6 = request.POST.get('value6').split(',')
+
+        lem = len(value1 + value2 + value3 + value4 + value5 + value6)
+
+        if lem != 36:
+            error = 'Plaese write just 6 values in each field.'
+            return render(request, 'matrices/matrice_ex4.html', {'error': error})
+
+        matrices = [value1, value2, value3, value4, value5, value6]
+        larger_than_ten = []
+        count = 0
+
+
+        for l in matrices:
+            for c in l:
+                if int(c) > 10:
+                    larger_than_ten.append(c) # or i can use the len of this will return the quantity.
+                    count += 1
+
+    return render(request, 'matrices/matrice_ex4.html', {'matrices': matrices,
+                                                         'larger_than_ten': larger_than_ten,
+                                                         'count': count
+                                                         })
+
+
 def matrice_ex5(request):
     matrices = []
     error2 = None
