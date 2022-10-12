@@ -120,6 +120,7 @@ def matrice_ex4(request):
     larger_than_ten = []
     count = None
 
+
     if request.method == 'POST':
         value1 = request.POST.get('value1').split(',')
         value2 = request.POST.get('value2').split(',')
@@ -150,4 +151,38 @@ def matrice_ex4(request):
                                                          'count': count
                                                          })
 
+
+def matrice_ex5(request):
+    matrices = []
+    error2 = None
+    value2_int = None
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+        value5 = request.POST.get('value5').split(',')
+
+        lem = len(value1 + value2 + value3 + value4 + value5)
+        if lem != 25:
+            error = 'Plaese write just 5 values.'
+            return render(request, 'matrices/matrice_ex5.html', {'error': error})
+
+        matrices = [value1, value2, value3, value4, value5]
+
+        valueX = request.POST.get('valueX').split(',')
+
+        value2_int = int(valueX[0])
+
+        for i in range(0, len(matrices)):
+            for j in range(0, len(matrices)):
+                if matrices[i][j] == value2_int:
+                    position = i, j
+
+                    return render(request, 'matrices/matrice_ex5.html', {
+                        'matrices': matrices, 'position': position, 'value2_int': value2_int})
+
+            error2 = 'not in matrice.'
+    return render(request, 'matrices/matrice_ex5.html', {'matrices': matrices, 'error2': error2, 'value2_int': value2_int})
 
