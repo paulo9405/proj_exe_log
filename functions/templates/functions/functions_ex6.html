@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Functions ex6</h1>
+
+<p>
+    Faça uma função que recebe a idade de uma pessoa em anos, <br>
+    meses e dias e retorna essa idade expressa em dias.
+</p>
+
+<form action="" method="POSt">
+    {% csrf_token %}
+    <label for="v1">Age: </label>
+    <input type="text" name="value1" id="v1">
+
+    <input type="submit">
+</form>
+
+<br>
+
+<h4>Age: {{age}}</h4>
+<h4>Days total: {{tot_day}}</h4>
+
+
+</body>
+</html>
