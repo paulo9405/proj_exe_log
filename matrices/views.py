@@ -298,4 +298,28 @@ def matrice_ex9(request):
                         matriz[c][l] = cy
 
     return render(request, 'matrices/matrice_ex9.html', {'matrice': matrice, 'matriz': matriz})
+
+
+def matrice_ex10(request):
+    mat = [[10, 2, 3],
+           [4, 5, 6],
+           [8, 8, 9]]
+
+    highest = 0
+    summ_sec = 0
+    diag_pri = []
+    diag_sec = []
+
+    n = len(mat)
+    for i in range(len(mat)):
+        diag_pri.append(mat[i][i])
+        if mat[i][i] > highest:
+            highest = mat[i][i]
+        for j in range(len(mat[i])):
+            if i + j == (n - 1):
+                diag_sec.append(mat[i][j])
+                summ_sec += mat[i][j]
+    return render(request, 'matrices/matrice_ex10.html', {'mat': mat,
+                                                          'highest': highest,
+                                                          'summ_sec': summ_sec})
     
