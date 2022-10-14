@@ -322,4 +322,33 @@ def matrice_ex10(request):
     return render(request, 'matrices/matrice_ex10.html', {'mat': mat,
                                                           'highest': highest,
                                                           'summ_sec': summ_sec})
+                                                          
+
+def matrice_ex11(request):
+    mat = [
+        [5, -1, -1, -1, -1, -11],
+        [-1, 5, -1, -1, -1, -1],
+        [-1, -1, 5, -1, -1, -1],
+        [-1, -1, -1, 5, -1, -1],
+        [-1, -1, -1, -1, 5, -1],
+        [-1, -1, -1, -1, -1, 5],
+    ]
+
+    matriz = [
+        [5, -1, -1, -1, -1, -11],
+        [-1, 5, -1, -1, -1, -1],
+        [-1, -1, 5, -1, -1, -1],
+        [-1, -1, -1, 5, -1, -1],
+        [-1, -1, -1, -1, 5, -1],
+        [-1, -1, -1, -1, -1, 5],
+    ]
+
+    for l in range(len(matriz)):
+        for c in range(len(matriz)):
+            if c <= l and matriz[c][l] < 0:
+                matriz[c][l] = 0
+
+            if c >= l and matriz[c][l] < 0:
+                matriz[c][l] = 0
+    return render(request, 'matrices/matrice_ex11.html', {'mat': mat, 'matriz': matriz})
     

@@ -11,6 +11,7 @@ from .views import(
     matrice_ex8,
     matrice_ex9,
     matrice_ex10,
+    matrice_ex11,
 )
 
 
@@ -26,4 +27,6 @@ urlpatterns = [
     path('matrice_ex8', matrice_ex8, name='matrice_ex8_x'),
     path('matrice_ex9', matrice_ex9, name='matrice_ex9_x'),
     path('matrice_ex10', matrice_ex10, name='matrice_ex10_x'),
+    path('matrice_ex11', matrice_ex11, name='matrice_ex11_x'),
+
 ]
