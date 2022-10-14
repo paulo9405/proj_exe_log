@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 5 Matrices</h1>
+
+<p>
+    Leia uma matriz 20 x 20. Leia também um valor X. O programa deverá fazer <br>
+    uma busca desse valor na matriz e, ao final escrever a localização (linha e coluna) <br>
+    ou uma mensagem de “não encontrado”.
+</p>
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+     <label for="v1">values 1</label>
+    <input type="text" name="value1" id="v1">
+
+    <br><br>
+
+    <label for="v2">values 2</label>
+    <input type="text" name="value2" id="v2">
+
+    <br><br>
+
+    <label for="v3">values 3</label>
+    <input type="text" name="value3" id="v3">
+
+    <br><br>
+    <label for="v4">values 4</label>
+    <input type="text" name="value4" id="v4">
+    <br><br>
+
+    <label for="v5">values 5</label>
+    <input type="text" name="value5" id="v5">
+    <br><br>
+
+    <label for="vx">value x</label>
+    <input type="text" name="valueX" id="vx">
+    <br><br>
+    
+    <br> <br>
+
+    <input type="submit">
+
+</form>
+
+<br><br>
+
+    {%for i in matrices%}
+        {{i}}<br>
+    {%endfor%}
+
+<br> <br>
+Value: {{value2_int}}
+<br>
+
+Position: {{position}}
+
+{%if error2 %}
+   {{ error2 }}
+{%endif%}
+
+
+<br> <br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+
+</body>
+</html>
