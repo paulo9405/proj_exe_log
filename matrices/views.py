@@ -243,8 +243,8 @@ def matrice_ex7(request):
 
     return render(request, 'matrices/matrice_ex7.html', {'matriz': matriz})
     
-    
-    def matrice_ex8(request):
+
+def matrice_ex8(request):
     matrix = [
         [1, 0, 0, 0, 0],
         [1, 1, 0, 0, 0],
