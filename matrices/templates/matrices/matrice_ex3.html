@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex3 matrices</h1>
+
+<p>
+    Leia duas matrizes 4 x 4 e escreva uma terceira com
+    os 4 maiores elementos entre as primeiras.
+</p>
+
+{%if error %}
+    {{ error }}
+{%endif%}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v1">values 1</label>
+    <input type="text" name="value1" id="v1">
+
+    <br><br>
+
+    <label for="v2">values 2</label>
+    <input type="text" name="value2" id="v2">
+
+    <br><br>
+
+    <label for="v3">values 3</label>
+    <input type="text" name="value3" id="v3">
+
+    <br><br>
+    <label for="v4">values 4</label>
+    <input type="text" name="value4" id="v4">
+    <br><br>
+
+    <label for="v5">values 5</label>
+    <input type="text" name="value5" id="v5">
+    <br><br>
+    <label for="v6">values 6</label>
+    <input type="text" name="value6" id="v6">
+    <br><br>
+    <label for="v7">values 7</label>
+    <input type="text" name="value7" id="v7">
+    <br><br>
+    <label for="v8">values 8</label>
+    <input type="text" name="value8" id="v8">
+    <br><br>
+
+    <input type="submit">
+</form>
+<br>
+
+<h4>Matrice A</h4>
+{%for i in matrices_1%}
+        {{i}}<br>
+{%endfor%}
+
+
+<br>
+
+<h4>Matrice B</h4>
+{%for i in matrices_2%}
+        {{i}}<br>
+{%endfor%}
+
+<br>
+
+<h4>Matrice third</h4>
+{%for i in matrice_third%}
+        {{i}}<br>
+{%endfor%}
+
+<br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+</body>
+</html>
