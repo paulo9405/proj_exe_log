@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Lopps Ex1</h1>
+
+<p>
+    Faça um programa que receba um número e usando laços de repetição calcule e mostre a tabuada desse número.
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">Number: </label>
+    <input type="number" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br>
+
+{% for r in res %}
+    {{r}} <br>
+{% endfor %}
+
+<br>
+<a href="{% url 'home_loops' %}">Back to list</a> <br>
+
+
+</body>
+</html>
