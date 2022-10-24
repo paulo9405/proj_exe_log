@@ -13,6 +13,7 @@ def loops_ex7(request):
 
     def desconto(total):
         total = int(value)
+
         if total < 500:
             valor_final = total
             return valor_final
