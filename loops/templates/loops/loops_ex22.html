@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link href="grid/simple-grid.min.css" rel="stylesheet">
+</head>
+<body>
+
+<h1>Loops ex22</h1>
+
+<br>
+
+<p>
+    Difícil 22- Faça um programa que receba o valor de um carro e mostre uma <br>
+    tabela com os seguintes dados: preço final, quantidade de parcelas e valor <br>
+    da parcela. Considere o seguinte:
+    <br> <br>
+    - O preço final para compra à vista tem um desconto de 20%; <br>
+    - A quantidades de parcelas pode ser: 6, 12, 18, 24, 30, 36, 42, 48, 54 e 60. <br>
+    - Os percentuais de acréscimo seguem a tabela a seguir.
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <label for="v">Valor: </label>
+    <input type="number" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br><br>
+
+<h4>Valor avista 20% off: {{avista}}</h4>
+
+<table>
+    <tr>
+        <td>Parcelas | </td>
+        <td>Juros | </td>
+        <td>valor das parcelas | </td>
+        <td>Total</td>
+    </tr>
+  <tr>
+    <td>
+        {% for i in parcelas%}
+            {{i}}<br>
+        {% endfor %}
+    </td>
+    <td>
+        {% for i in  juros%}
+            {{i}} <br>
+        {% endfor %}
+    </td>
+
+    <td>
+        {% for i in  v_parc%}
+            {{i}} <br>
+        {% endfor %}
+    </td>
+
+    <td>
+        {% for i in  total%}
+            {{i}} <br>
+        {% endfor %}
+    </td>
+  <tr>
+</table>
+
+<a href="{% url 'home_loops' %}">Back to list</a> <br>
+
+
+</body>
+</html>
