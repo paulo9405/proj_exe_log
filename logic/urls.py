@@ -20,5 +20,6 @@ urlpatterns = [
     path('matrices/', include('matrices.urls')),
     path('vectors/', include('vectors.urls')),
     path('functions/', include('functions.urls')),
+    path('loops/', include('loops.urls')),
 
 ]
