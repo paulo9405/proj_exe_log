@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 texto = ' abd012'
 
 produtos = ['ABC123', ' abd012', 'ABS111', 'abB222']
@@ -33,3 +34,5 @@ def primo(x):
 
 a = primo(a)
 print(a)
+=======
+>>>>>>> 88525b57a7ee0f5574885faa9149ea7fed04cfb7
