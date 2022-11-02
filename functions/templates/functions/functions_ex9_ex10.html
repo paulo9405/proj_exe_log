@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>
+    Fácil 9. Faça uma função que recebe um valor inteiro e verifica se <br>
+    o valor é positivo ou negativo. A função deve retornar um valor booleano.
+</p>
+<p>
+    Fácil 10. Faça uma função que recebe um valor inteiro e verifica <br>
+    se o valor é par ou ímpar. A função deve retornar um valor booleano
+</p>
+
+<h1>functions ex 9 and 10</h1>
+
+<br>
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">Value:</label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<h4>Value: {{value}}</h4>
+<h4>Positive(True) or Negative(False): {{r1}}</h4>
+<h4>Par(True) or Impar(False): {{r2}}</h4>
+
+</body>
+</html>

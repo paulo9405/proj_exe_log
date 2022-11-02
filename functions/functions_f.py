@@ -46,3 +46,15 @@ def calc(y):
     m = y * 12
     d = m * 30
     return d
+
+
+def neg_pos(a):
+    if a >= 0:
+        return True
+    return False
+
+
+def inp_par(a):
+    if a % 2 == 0:
+        return True
+    return False
