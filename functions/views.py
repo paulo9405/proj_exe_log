@@ -59,15 +59,15 @@ def functions_ex2(request):
 
 
 def functions_ex3(request):
-    primo_or_not = None
+    is_prime = None
     value = None
     if request.method == 'POST':
         value = request.POST.get('value')
         if int(value) < 0:
             error = 'Please write just positive numbers.'
             return render(request, 'functions/functions_ex3.html', {'error': error})
-        primo_or_not = primo(int(value))
-    return render(request, 'functions/functions_ex3.html', {'primo_or_not': primo_or_not, 'value': value})
+        is_prime = primo(int(value))
+    return render(request, 'functions/functions_ex3.html', {'is_prime': is_prime, 'value': value})
 
 
 def functions_ex6(request):
