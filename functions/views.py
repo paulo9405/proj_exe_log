@@ -25,7 +25,7 @@ def functions_ex6(request):
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
 
 def functions_ex7(request):
-    true_false = None
+    is_perfect = None
     value = None
     if request.method == 'POST':
         value = request.POST.get('value')
@@ -34,7 +34,7 @@ def functions_ex7(request):
             if int(value) % i == 0:
                 list_div.append(i)
             if sum(list_div) == int(value):
-                true_false = True
+                is_perfect = True
             else:
-                true_false = False
-    return render(request, 'functions/functions_ex7.html', {'true_false': true_false, 'value': value})
+                is_perfect = False
+    return render(request, 'functions/functions_ex7.html', {'is_perfect': is_perfect, 'value': value})
