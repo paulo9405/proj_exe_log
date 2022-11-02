@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex 8 Matrices</h1>
+
+<p>
+    Leia uma matriz 5 x 5 e faça uma troca entre as diagonais superior e inferior. Escreva-a ao final.
+</p>
+<br>
+
+<br><br>
+    {%for i in matriz%}
+        {{i}}<br>
+    {%endfor%}
+<br><br>
+    {%for i in matriz%}
+        {{i}}<br>
+    {%endfor%}
+
+<br>
+
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+
+</body>
+</html>
