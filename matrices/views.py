@@ -35,7 +35,7 @@ def matrice_ex1(request):
                 position = i, j
 
     return render(request, 'matrices/matrice_ex1.html', {'matrices': matrices, 'maior': maior, 'position': position})
-
+    
 
 def matrice_ex2(request):
     matrices = []
@@ -89,7 +89,6 @@ def matrice_ex3(request):
             error = 'Please write just 4 values in each field.'
             return render(request, 'matrices/matrice_ex3.html', {'error': error})
 
-
         matrices_1 = [value1, value2, value3, value4]
         matrices_2 = [value5, value6, value7, value8]
 
@@ -114,3 +113,242 @@ def matrice_ex3(request):
     return render(request, 'matrices/matrice_ex3.html', {'matrices_1': matrices_1,
                                                          'matrices_2': matrices_2,
                                                          'matrice_third': matrice_third, 'lem':lem})
+
+
+def matrice_ex4(request):
+    matrices = []
+    larger_than_ten = []
+    count = None
+
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+        value5 = request.POST.get('value5').split(',')
+        value6 = request.POST.get('value6').split(',')
+
+        lem = len(value1 + value2 + value3 + value4 + value5 + value6)
+
+        if lem != 36:
+            error = 'Plaese write just 6 values in each field.'
+            return render(request, 'matrices/matrice_ex4.html', {'error': error})
+
+        matrices = [value1, value2, value3, value4, value5, value6]
+        larger_than_ten = []
+        count = 0
+
+
+        for l in matrices:
+            for c in l:
+                if int(c) > 10:
+                    larger_than_ten.append(c) # or i can use the len of this will return the quantity.
+                    count += 1
+
+    return render(request, 'matrices/matrice_ex4.html', {'matrices': matrices,
+                                                         'larger_than_ten': larger_than_ten,
+                                                         'count': count
+                                                         })
+
+
+def matrice_ex5(request):
+    matrices = []
+    error2 = None
+    value2_int = None
+
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').split(',')
+        value2 = request.POST.get('value2').split(',')
+        value3 = request.POST.get('value3').split(',')
+        value4 = request.POST.get('value4').split(',')
+        value5 = request.POST.get('value5').split(',')
+
+        lem = len(value1 + value2 + value3 + value4 + value5)
+        if lem != 25:
+            error = 'Plaese write just 5 values.'
+            return render(request, 'matrices/matrice_ex5.html', {'error': error})
+
+        matrices = [value1, value2, value3, value4, value5]
+
+        valueX = request.POST.get('valueX').split(',')
+
+        value2_int = int(valueX[0])
+
+        for i in range(0, len(matrices)):
+            for j in range(0, len(matrices)):
+                if matrices[i][j] == value2_int:
+                    position = i, j
+
+                    return render(request, 'matrices/matrice_ex5.html', {
+                        'matrices': matrices, 'position': position, 'value2_int': value2_int})
+
+            error2 = 'not in matrice.'
+    return render(request, 'matrices/matrice_ex5.html', {'matrices': matrices, 'error2': error2, 'value2_int': value2_int})
+
+
+def matrice_ex6(request):
+    value = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(',')
+
+    if len(value) != 4:
+        error = 'Plaese write just 4 values.'
+        return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+    matrices = []
+    for i in value:
+        int_i = int(i)
+
+        if int_i < 4:
+            error = 'Plaese write value grater than 4.'
+            return render(request, 'matrices/matrice_ex6.html', {'error': error})
+
+        matrices.append([random.randint(1, int_i) for _ in range(4)])
+
+    for i in range(4):
+        m = matrices[0][i]
+        matrices[0][i] = matrices[3][i]
+        matrices[3][i] = m
+
+    return render(request, 'matrices/matrice_ex6.html', {'matrices': matrices})
+
+
+def matrice_ex7(request):
+    matriz = []
+    if request.method == 'POST':
+        value = request.POST.get('value').split(',')
+
+        for i in value:
+            int_i = int(i)
+            if int_i != 0:
+                error = 'Plaese write just number 0.'
+                return render(request, 'matrices/matrice_ex7.html', {'error': error})
+
+        matriz = [
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+        ]
+
+        for l in range(len(matriz)):
+            for c in range(len(matriz)):
+                if c < l:
+                    matriz[c][l] = 0
+
+    return render(request, 'matrices/matrice_ex7.html', {'matriz': matriz})
+    
+
+def matrice_ex8(request):
+    matrix = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+    ]
+
+    matriz = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+    ]
+
+    for l in range(len(matriz)):
+        for c in range(len(matriz)):
+            if c > l:
+                cy = matriz[l][c]
+                matriz[l][c] = matriz[c][l]
+                matriz[c][l] = cy
+
+    return render(request, 'matrices/matrice_ex8.html', {'matriz': matriz, 'matrix': matrix})
+
+
+def matrice_ex9(request):
+    matriz = [
+        [1, 0, 0, 0, 0],
+        [1, 1, 0, 0, 0],
+        [1, 1, 1, 0, 0],
+        [1, 1, 1, 1, 0],
+        [1, 1, 1, 1, 1],
+    ]
+
+    matrice = [
+        [2, 2, 2, 2, 2],
+        [8, 2, 2, 2, 2],
+        [8, 8, 2, 2, 2],
+        [8, 8, 8, 2, 2],
+        [8, 8, 8, 8, 2],
+    ]
+
+    for l1 in range(len(matrice)):
+        for c1 in range(len(matrice)):
+            for l in range(len(matriz)):
+                for c in range(len(matriz)):
+                    if c > l and l1 > c1:
+                        cy = matrice[c1][l1]
+                        matrice[c1][l1] = matriz[c][l]
+                        matriz[c][l] = cy
+
+    return render(request, 'matrices/matrice_ex9.html', {'matrice': matrice, 'matriz': matriz})
+
+
+def matrice_ex10(request):
+    mat = [[10, 2, 3],
+           [4, 5, 6],
+           [8, 8, 9]]
+
+    highest = 0
+    summ_sec = 0
+    diag_pri = []
+    diag_sec = []
+
+    n = len(mat)
+    for i in range(len(mat)):
+        diag_pri.append(mat[i][i])
+        if mat[i][i] > highest:
+            highest = mat[i][i]
+        for j in range(len(mat[i])):
+            if i + j == (n - 1):
+                diag_sec.append(mat[i][j])
+                summ_sec += mat[i][j]
+    return render(request, 'matrices/matrice_ex10.html', {'mat': mat,
+                                                          'highest': highest,
+                                                          'summ_sec': summ_sec})
+                                                          
+
+def matrice_ex11(request):
+    mat = [
+        [5, -1, -1, -1, -1, -11],
+        [-1, 5, -1, -1, -1, -1],
+        [-1, -1, 5, -1, -1, -1],
+        [-1, -1, -1, 5, -1, -1],
+        [-1, -1, -1, -1, 5, -1],
+        [-1, -1, -1, -1, -1, 5],
+    ]
+
+    matriz = [
+        [5, -1, -1, -1, -1, -11],
+        [-1, 5, -1, -1, -1, -1],
+        [-1, -1, 5, -1, -1, -1],
+        [-1, -1, -1, 5, -1, -1],
+        [-1, -1, -1, -1, 5, -1],
+        [-1, -1, -1, -1, -1, 5],
+    ]
+
+    for l in range(len(matriz)):
+        for c in range(len(matriz)):
+            if c <= l and matriz[c][l] < 0:
+                matriz[c][l] = 0
+
+            if c >= l and matriz[c][l] < 0:
+                matriz[c][l] = 0
+    return render(request, 'matrices/matrice_ex11.html', {'mat': mat, 'matriz': matriz})
+    
