@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from .functions_f import media_student, media_ponderada, mcm, media_harmonica
+from .functions_f import (
+    media_student,
+    media_ponderada,
+    media_harmonica,
+    primo,
+    calc,
+)
 
 
 def home(request):
@@ -53,19 +59,24 @@ def functions_ex2(request):
     return render(request, 'functions/functions_ex2.html', {'m': m, 'value1': value1})
 
 
+def functions_ex3(request):
+    is_prime = None
+    value = None
+    if request.method == 'POST':
+        value = request.POST.get('value')
+        if int(value) < 0:
+            error = 'Please write just positive numbers.'
+            return render(request, 'functions/functions_ex3.html', {'error': error})
+        is_prime = primo(int(value))
+    return render(request, 'functions/functions_ex3.html', {'is_prime': is_prime, 'value': value})
+
+
 def functions_ex6(request):
+    age = None
+    tot_day = None
     if request.method == 'POST':
         age = request.POST.get('value1')
-
-        def calc(y):
-            y = int(age)
-            m = y * 12
-            d = m * 30
-
-            return d
-
         tot_day = calc(int(age))
-
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
 
 

@@ -29,3 +29,20 @@ def media_harmonica(v1):
         r = round((3 * mmc) / r, 2)
         msg = 'media harmonizada'
         return r, msg
+
+
+def primo(x):
+    mult = 0
+    for count in range(2, x):
+        if (x % count == 0):
+            mult += 1
+
+        if (mult == 0):
+            return True
+        return False
+
+def calc(y):
+    y = y
+    m = y * 12
+    d = m * 30
+    return d
