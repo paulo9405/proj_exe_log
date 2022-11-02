@@ -40,3 +40,9 @@ def primo(x):
         if (mult == 0):
             return True
         return False
+
+def calc(y):
+    y = y
+    m = y * 12
+    d = m * 30
+    return d

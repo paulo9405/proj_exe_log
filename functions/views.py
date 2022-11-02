@@ -4,6 +4,7 @@ from .functions_f import (
     media_ponderada,
     media_harmonica,
     primo,
+    calc,
 )
 
 
@@ -71,14 +72,10 @@ def functions_ex3(request):
 
 
 def functions_ex6(request):
+    age = None
+    tot_day = None
     if request.method == 'POST':
         age = request.POST.get('value1')
-
-        def calc(y):
-            y = int(age)
-            m = y * 12
-            d = m * 30
-            return d
         tot_day = calc(int(age))
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
 
