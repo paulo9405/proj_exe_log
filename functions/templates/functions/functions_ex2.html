@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>functions ex2</h1>
+
+<p>
+  Intermediário 2. Escreva um procedimento que recebe as 3 notas de um aluno por <br>
+  parâmetro e uma letra. Se a letra for A o procedimento calcula a média aritmética <br>
+  das notas do aluno, se for P, a sua média ponderada (pesos: 5, 3 e 2) e se for H, <br>
+  a sua média harmônica. A média calculada também deve retornar por parâmetro. <br>
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+
+    {% if error_value %}
+        {{error_value}}
+    {% endif %}
+    <br>
+    <label for="v1">Notes</label>
+    <input type="text" name="value1" id="v1">
+
+    <br> <br>
+
+    {% if error %}
+        {{error}}
+    {% endif %}
+    <br>
+    <label for="v2">Letter</label>
+    <input type="text" name="value2" id="v2">
+
+    <br> <br>
+
+    <input type="submit">
+
+</form>
+
+<br><br>
+
+    {{value1}}
+    <br><br>
+    {{m}}
+
+<br>
+
+<a href="{% url 'home_functions' %}">Back to list</a> <br>
+
+</body>
+</html>
