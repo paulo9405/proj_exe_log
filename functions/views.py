@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .functions_f import (
+    calculate_volume,
     media_student,
     media_ponderada,
     media_harmonica,
@@ -17,15 +18,9 @@ def home(request):
 
 
 def functions_ex1(request):
+    value = 0
     if request.method == 'POST':
         value = request.POST.get('value')
-
-        def calculate_volume(r):
-            r = r
-            pi = 3.14
-            v = 4 * (r ** 3)
-            v = (v / 3) * pi
-            return v
 
     volume = calculate_volume(int(value))
     volume = round(volume, 2)

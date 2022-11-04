@@ -1,3 +1,11 @@
+def calculate_volume(r):
+    r = r
+    pi = 3.14
+    v = 4 * (r ** 3)
+    v = (v / 3) * pi
+    return v
+
+
 def media_student(v1):
     v1 = v1
     media = 0
