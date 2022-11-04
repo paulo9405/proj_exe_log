@@ -5,6 +5,7 @@ from .functions_f import (
     media_harmonica,
     primo,
     calc,
+    id_categ,
 )
 
 
@@ -94,4 +95,13 @@ def functions_ex7(request):
             else:
                 is_perfect = False
     return render(request, 'functions/functions_ex7.html', {'is_perfect': is_perfect, 'value': value})
+
+
+def functions_ex8(request):
+    result = None
+    value = None
+    if request.method == 'POST':
+        value = request.POST.get('value')
+        result = id_categ(int(value))
+    return render(request, 'functions/functions_ex8.html', {'result': result, 'value': value})
 

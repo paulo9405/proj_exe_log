@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Functions ex 8</h1>
+<br>
+<p>
+    Intermediário 8. Faça um procedimento que recebe a idade de um nadador <br>
+    por parâmetro e retorna , também por parâmetro, a categoria desse <br>
+    nadador de acordo com a tabela abaixo: <br>
+
+    <br>
+    <p>
+        Idade &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            Categoria <br>
+
+        5 a 7 anos:	        Infantil A <br>
+
+        8 a 10 anos:	        Infantil B <br>
+
+        11-13 anos:	        Juvenil A <br>
+
+        14-17 anos:	        Juvenil B <br>
+
+        Maiores de 18 anos (inclusive):	Adulto
+    </p>
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <label for="v">Age: </label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<h4>Age: {{value}}</h4>
+<h4>Categoria: {{result}}</h4>
+<br>
+<a href="{% url 'home_functions' %}">Back to list</a> <br>
+
+</body>
+</html>
