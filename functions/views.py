@@ -81,6 +81,22 @@ def functions_ex6(request):
     return render(request, 'functions/functions_ex6.html', {'age': age, 'tot_day': tot_day})
 
 
+def functions_ex7(request):
+    is_perfect = None
+    value = None
+    if request.method == 'POST':
+        value = request.POST.get('value')
+        list_div = []
+        for i in range(1, int(value)):
+            if int(value) % i == 0:
+                list_div.append(i)
+            if sum(list_div) == int(value):
+                is_perfect = True
+            else:
+                is_perfect = False
+    return render(request, 'functions/functions_ex7.html', {'is_perfect': is_perfect, 'value': value})
+
+
 def functions_ex8(request):
     result = None
     value = None
@@ -88,3 +104,4 @@ def functions_ex8(request):
         value = request.POST.get('value')
         result = id_categ(int(value))
     return render(request, 'functions/functions_ex8.html', {'result': result, 'value': value})
+
