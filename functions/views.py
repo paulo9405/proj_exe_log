@@ -5,8 +5,8 @@ from .functions_f import (
     media_harmonica,
     primo,
     calc,
-    neg_pos,
-    inp_par,
+    is_positive,
+    is_par,
 )
 
 
@@ -83,12 +83,11 @@ def functions_ex6(request):
 
 
 def functions_ex9_ex10(request):
-    r1 = None
-    r2 = None
+    isPositive = None
+    isPar = None
     value = None
     if request.method == 'POST':
         value = request.POST.get('value')
-        r1 = neg_pos(int(value))
-        r2 = inp_par(int(value))
-
-    return render(request, 'functions/functions_ex9_ex10.html', {'r1': r1, 'r2': r2, 'value': value})
+        isPositive = is_positive(int(value))
+        isPar = is_par(int(value))
+    return render(request, 'functions/functions_ex9_ex10.html', {'isPositive': isPositive, 'isPar': isPar, 'value': value})

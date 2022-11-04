@@ -48,13 +48,13 @@ def calc(y):
     return d
 
 
-def neg_pos(a):
+def is_positive(a):
     if a >= 0:
         return True
     return False
 
 
-def inp_par(a):
+def is_par(a):
     if a % 2 == 0:
         return True
     return False
