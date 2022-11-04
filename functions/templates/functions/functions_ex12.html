@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Functions ex 12</h1>
+<br>
+
+<p>
+    Intermediário 12. Faça uma função que recebe, por parâmetro, a altura (alt) <br>
+    e o sexo de uma pessoa e retorna o seu peso ideal. Para homens, calcular o peso <br>
+    ideal usando a fórmula peso ideal = 72.7 x alt – 58 e, para mulheres, peso ideal = 62.1 x alt – 44.7.
+</p>
+
+<br>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v1">Sexo: </label>
+    <input type="text" name="value1" id="v1" placeholder="Ex: F or M">
+    <br><br>
+
+    {% if error%}
+        {{error}}
+    {% endif %}
+    <br>
+    <label for="v2">Height</label>
+    <input type="text" name="value2" id="v2" placeholder="Ex: 180 cm">
+    <br><br>
+
+    <label for="v3">Weight</label>
+    <input type="text" name="value3" id="v3" placeholder="Ex: 75.4 or 75">
+    <br><br>
+
+    <input type="submit">
+</form>
+<br>
+
+<h4>Weight ideal: {{result}}</h4>
+<a href="{% url 'home_functions' %}">Back to list</a> <br>
+</body>
+</html>

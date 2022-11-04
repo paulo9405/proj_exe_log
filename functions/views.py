@@ -7,6 +7,8 @@ from .functions_f import (
     calc,
     id_categ,
     media_studant,
+    weight_man,
+    weight_women,
 )
 
 
@@ -98,7 +100,6 @@ def functions_ex7(request):
     return render(request, 'functions/functions_ex7.html', {'is_perfect': is_perfect, 'value': value})
 
 
-
 def functions_ex8(request):
     result = None
     value = None
@@ -122,3 +123,17 @@ def functions_ex11(request):
         media_sum = round(media_sum, 2)
         media_total = media_studant(media_sum)
     return render(request, 'functions/functions_ex11.html', {'media_sum': media_sum, 'media_total': media_total})
+
+
+def functions_ex12(request):
+    result = None
+    if request.method == 'POST':
+        value1 = request.POST.get('value1').upper()
+        value2 = request.POST.get('value2')
+        value3 = request.POST.get('value3')
+        if value1 == 'M':
+            result = weight_man(value2, value3)
+        if value1 == 'F':
+            result = weight_women(value2, value3)
+
+    return render(request, 'functions/functions_ex12.html', {'result': result})

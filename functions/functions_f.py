@@ -72,3 +72,17 @@ def media_studant(a):
         return 'B'
     if a >= 9 and a <= 10:
         return 'A'
+
+
+def weight_man(a, w):
+    a = int(a) / 100
+    w = float(w)
+    ideal = (w * a) - 58
+    return 'ideal weight', ideal
+
+
+def weight_women(a, w):
+    a = int(a) / 100
+    w = float(w)
+    ideal = (w * a) - 44.7
+    return 'ideal weight', ideal

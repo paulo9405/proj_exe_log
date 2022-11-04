@@ -7,10 +7,10 @@ from .views import (
     functions_ex6,
     functions_ex7,
     functions_ex8,
-    functions_ex11
+    functions_ex11,
+    functions_ex12
 
 )
-
 
 urlpatterns = [
     path('', home, name='home_functions'),
@@ -21,4 +21,5 @@ urlpatterns = [
     path('functions_ex7', functions_ex7, name='functions_ex7_x'),
     path('functions_ex8', functions_ex8, name='functions_ex8_x'),
     path('functions_ex11', functions_ex11, name='functions_ex11_x'),
+    path('functions_ex12', functions_ex12, name='functions_ex12_x'),
 ]
