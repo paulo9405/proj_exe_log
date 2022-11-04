@@ -6,6 +6,7 @@ from .functions_f import (
     primo,
     calc,
     id_categ,
+    media_studant,
 )
 
 
@@ -97,6 +98,7 @@ def functions_ex7(request):
     return render(request, 'functions/functions_ex7.html', {'is_perfect': is_perfect, 'value': value})
 
 
+
 def functions_ex8(request):
     result = None
     value = None
@@ -105,3 +107,18 @@ def functions_ex8(request):
         result = id_categ(int(value))
     return render(request, 'functions/functions_ex8.html', {'result': result, 'value': value})
 
+
+def functions_ex11(request):
+    note = []
+    media = 0
+    media_sum = None
+    media_total = None
+    if request.method == 'POST':
+        notes = request.POST.get('value').split(',')
+        for i in notes:
+            note.append(int(i))
+            media += int(i)
+        media_sum = media / len(note)
+        media_sum = round(media_sum, 2)
+        media_total = media_studant(media_sum)
+    return render(request, 'functions/functions_ex11.html', {'media_sum': media_sum, 'media_total': media_total})

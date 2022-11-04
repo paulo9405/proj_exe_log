@@ -51,18 +51,24 @@ def calc(y):
 def id_categ(a):
     if a >= 5 and a <= 7:
         return 'Infantil A'
-
     if a >= 8 and a <= 10:
         return 'Infantil B'
-
     if a >= 11 and a <= 13:
         return 'Juvenil A'
-
     if a >= 14 and a <= 17:
         return 'Juvenil A'
-
     if a > 17:
         return 'Juvenil B'
-
     else:
         return 'Idade permitida a partir de 5 anos.'
+
+
+def media_studant(a):
+    if a >= 0 and a <= 4.9:
+        return 'D'
+    if a >= 5 and a <= 6.9:
+        return 'C'
+    if a >= 7 and a <= 8.9:
+        return 'B'
+    if a >= 9 and a <= 10:
+        return 'A'

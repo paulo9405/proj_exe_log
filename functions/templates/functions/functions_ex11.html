@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>
+     Fácil 11. Faça uma função que recebe a média final de um aluno <br>
+    por parãmetro e retorna o seu conceito, conforme a tabela abaixo:
+</p>
+<p>
+Nota | Conceito <br>
+de 0,0 a 4,9 --> D <br>
+de 5,0 a 6,9 --> C <br>
+de 7,0 a 8,9 --> B <br>
+de 9,0 a 10,0 --> A
+</p>
+
+<h1>Functions ex11</h1>
+
+<br>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <label for="v">Notes: </label>
+    <input type="text" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br>
+
+<h4>Media: {{media_sum}}</h4>
+<h4>Conceito: {{media_total}}</h4>
+
+<a href="{% url 'home_functions' %}">Back to list</a> <br>
+
+</body>
+</html>

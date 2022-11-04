@@ -7,9 +7,9 @@ from .views import (
     functions_ex6,
     functions_ex7,
     functions_ex8,
+    functions_ex11
 
 )
-
 
 
 urlpatterns = [
@@ -20,5 +20,5 @@ urlpatterns = [
     path('functions_ex6', functions_ex6, name='functions_ex6_x'),
     path('functions_ex7', functions_ex7, name='functions_ex7_x'),
     path('functions_ex8', functions_ex8, name='functions_ex8_x'),
-
+    path('functions_ex11', functions_ex11, name='functions_ex11_x'),
 ]
