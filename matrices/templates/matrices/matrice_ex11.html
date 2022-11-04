@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Mstrice ex11</h1>
+
+<p>
+    Intermediário 11. <br>
+    Leia uma matriz 6 x 6 e atribuir o valor 0 <br>
+    para os valores negativos encontrados fora <br>
+    das diagonais principal. <br>
+</p>
+
+<br>
+
+    {%for i in mat%}
+        {{i}}<br>
+    {%endfor%}
+
+<br><br>
+
+    {%for i in matriz%}
+        {{i}}<br>
+    {%endfor%}
+
+<br>
+<a href="{% url 'home_matrices' %}">Back to list</a> <br>
+
+</body>
+</html>

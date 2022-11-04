@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Functions ex3</h1>
+
+<p>
+    Intermediário 3. Faça uma função que recebe por parâmetro um valor <br>
+    inteiro e positivo e retorna o valor lógico Verdadeiro caso o valor <br>
+    seja primo e Falso em caso contrário.
+</p>
+
+<br>
+
+{% if error%}
+    {{error}}
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <label for="v">Value: </label>
+    <input type="number" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br>
+{{value}}
+<br>
+Primo: {{is_prime}}
+<br>
+<a href="{% url 'home_functions' %}">Back to list</a> <br>
+
+</body>
+</html>

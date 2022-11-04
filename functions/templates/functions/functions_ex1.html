@@ -13,6 +13,19 @@
     raio de uma esfera e calcula o seu volume (v = 4/3.P .R3).
 </p>
 
+<form action="" method="POST">
+    {% csrf_token %}
+
+    <label for="v">Radius value</label>
+    <input type="number" name="value" id="v">
+    <input type="submit">
+</form>
+
+<br>
+
+<h4>Radius: {{radius}}</h4>
+<h4>The volume is: {{volume}}</h4>
+
 <br>
 <a href="{% url 'home_functions' %}">Back to list</a> <br>
 
