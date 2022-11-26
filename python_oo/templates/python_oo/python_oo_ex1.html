@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Python OO ex 1</h1>
+
+<p>
+    1) Escreva em Java uma classe Contador, que encapsule um valor usado <br>
+    para contagem de itens ou eventos. A classe deve oferecer métodos <br>
+    que devem: <br>
+    a) Zerar; <br>
+    b) Incrementar; <br>
+    c) Retornar o valor do contador.
+</p>
+
+<form action="" method="POST">
+    {%csrf_token%}
+    <label for="v1">Incrementar:</label>
+    <input type="text" name="value_incrementa" id="v1">
+    <input type="submit">
+    <br> <br>
+
+
+</form>
+
+<form action="" method="get">
+        {%csrf_token%}
+    <label for="v2">zerar:</label>
+    <input type="submit" name="value_zerar" id="v2">
+</form>
+<br>
+
+<h4>Result: {{tot}}</h4>
+
+<br>
+
+<a href="{% url 'home_python_oo' %}">Back to list</a> <br>
+
+</body>
+</html>

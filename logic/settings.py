@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'matrices',
     'functions',
     'loops',
+    'python_oo',
 ]
 
 MIDDLEWARE = [

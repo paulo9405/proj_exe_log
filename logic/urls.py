@@ -21,5 +21,6 @@ urlpatterns = [
     path('vectors/', include('vectors.urls')),
     path('functions/', include('functions.urls')),
     path('loops/', include('loops.urls')),
+    path('python_oo/', include('python_oo.urls')),
 
 ]
