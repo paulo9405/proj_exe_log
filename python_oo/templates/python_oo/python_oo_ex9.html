@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Ex POO 9</h1>
+
+<p>
+    8) Escreva uma classe Pessoa que representa uma pessoa numa árvore <br>
+    genealógica. A pessoa possui um nome, um pai e uma mãe (que também <br>
+    são pessoas). Forneça os seguintes membros para a classe: <br>
+    a) Construtores sobrecarregados que: <br>
+    i) inicialize o nome da pessoa, bem como seus antecessores (pai e mãe); <br>
+    ii) inicialize o nome da pessoa, e coloque seus antecessores para null; <br>
+    b) Um método que verifique a igualdade semântica entre duas pessoas <br>
+    (as pessoas são iguais se possuem o mesmo nome e a mesma mãe); <br>
+    c) Um método que verifique se duas pessoas são irmãs; <br>
+    d) Um método que verifique se uma pessoa é antecessora da pessoa <br>
+    que recebeu a mensagem (é seu pai ou sua mãe, ou antecessor do <br>
+    pai ou antecessor da mãe). <br>
+</p>
+
+<form action="" method="POST">
+    {%csrf_token%}
+
+    <label for="v1">Dad </label>
+    <input type="text" name="dad" id="v1">
+    <br><br>
+    <label for="v2">Mom </label>
+    <input type="text" name="mom" id="v2">
+    <br><br>
+    <label for="v3">Son </label>
+    <input type="text" name="son" id="v3">
+    <br><br>
+    <label for="v4">Same_person </label>
+    <input type="text" name="same_person" id="v4">
+    <br><br>
+    <label for="v5">Brother </label>
+    <input type="text" name="brother" id="v5">
+    <br><br>
+
+    <input type="submit">
+</form>
+
+<h4>Dad: {{dad}}</h4>
+<h4>Mon: {{mom}}</h4>
+<h4>Son: {{son}}</h4>
+<h4>Same person: {{same_person}}</h4>
+<h4>Brother: {{brother}}</h4>
+
+<p>--------------------------</p>
+
+<h4>Same person:{{same}}</h4>
+<h4>Sublings: {{subling}}</h4>
+<h4>Predecessor: {{predecessor}}</h4>
+
+<br>
+<a href="{% url 'home_python_oo' %}">Back to list</a> <br>
+
+</body>
+</html>
